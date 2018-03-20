@@ -1,0 +1,394 @@
+2018-02-27 13:34:29,117 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2018-02-27 13:34:29,137 [     20]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IU-173.4548.28, 29 Jan 2018 17:22) 
+2018-02-27 13:34:29,137 [     20]   INFO -        #com.intellij.idea.Main - OS: Linux (4.4.86-11979-g09b49365a3c4, amd64) 
+2018-02-27 13:34:29,137 [     20]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_161-b12 (Oracle Corporation) 
+2018-02-27 13:34:29,138 [     21]   INFO -        #com.intellij.idea.Main - JVM: 25.161-b12 (Java HotSpot(TM) 64-Bit Server VM) 
+2018-02-27 13:34:29,147 [     30]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/opt/IntelliJ/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/home/robuntu/java_error_in_IDEA_%p.log -XX:HeapDumpPath=/home/robuntu/java_error_in_IDEA.hprof -Didea.paths.selector=IntelliJIdea2017.3 -Djb.vmOptionsFile=/opt/IntelliJ/bin/idea64.vmoptions -Didea.jre.check=true 
+2018-02-27 13:34:29,154 [     37]   INFO -        #com.intellij.idea.Main - ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@6a82cd57[Running, parallelism = 1, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0] 
+2018-02-27 13:34:29,155 [     38]   INFO -        #com.intellij.idea.Main - ext: /usr/lib/jvm/java-8-oracle/jre/lib/ext: [jfxrt.jar, zipfs.jar, sunjce_provider.jar, cldrdata.jar, jaccess.jar, meta-index, sunec.jar, dnsns.jar, nashorn.jar, localedata.jar, sunpkcs11.jar] 
+2018-02-27 13:34:29,155 [     38]   INFO -        #com.intellij.idea.Main - JNU charset: ANSI_X3.4-1968 
+2018-02-27 13:34:29,201 [     84]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 44 ms 
+2018-02-27 13:35:21,023 [  51906]   INFO - .intellij.idea.IdeaApplication - WM detected: Xfwm4 
+2018-02-27 13:35:23,032 [  53915]   INFO - llij.ide.plugins.PluginManager - 130 plugins initialized in 1642 ms 
+2018-02-27 13:35:23,038 [  53921]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: ASP (0.1), Android Support (10.2.3), AngularJS (173.4548.28), Ant Support (1.0), Application Servers View (0.2.0), AspectJ Support (1.2), Bytecode Viewer (0.1), CFML Support (3.53), CSS Support (173.4548.28), CVS Integration (11), Cloud Foundry integration (1.0), CloudBees integration (1.0), CoffeeScript (2.0), Copyright (8.1), Coverage (173.4548.28), Cucumber for Groovy (999.999), Cucumber for Java (999.999), DSM Analysis (1.0.0), Database Tools and SQL (173.4548.28), Eclipse Integration (3.0), EditorConfig (173.4548.28), Emma (173.4548.28), Flash/Flex Support (173.4548.28), FreeMarker support (1.0), GWT Support (1.0), Geronimo Integration (1.0), Gherkin (999.999), Git Integration (8.1), GitHub (173.4548.28), GlassFish Integration (1.0), Google App Engine Integration (1.1.4), Gradle (173.4548.28), Grails (9.0), Groovy (9.0), Guice (8.0), HTML Tools (2.0), Haml (173.4548.28), Heroku integration (173.4548.28), Hibernate Support (1.0), I18n for Java (173.4548.28), IDE Settings Sync (173.4548.28), IDEA CORE (173.4548.28), IntelliLang (8.0), J2ME (1.0), JBoss Arquillian Support (1.0), JBoss Drools Support (1.0), JBoss Frameworks Base Support (1.0), JBoss Integration (1.0), JBoss Seam Pageflow Support (1.0), JBoss Seam Pages Support (1.0), JBoss Seam Support (1.0), JBoss jBPM (2.0.0), JSR45 Integration (1.0), JUnit (1.0), Java Bytecode Decompiler (173.4548.28), Java EE: Batch Applications (1.0), Java EE: Bean Validation Support (1.1), Java EE: Contexts and Dependency Injection (1.1), Java EE: EJB, JPA, Servlets (1.0), Java EE: JMS, JSON Processing, Concurrency, Transaction  (1.0), Java EE: Java Server Faces (2.2.X.), Java EE: RESTful Web Services (JAX-RS) (1.0), Java EE: Web Services (JAX-WS) (1.9), Java EE: WebSockets (1.0), Java Server Pages (JSP) Integration (1.0), Java Stream Debugger (173.4548.28), JavaFX (1.0), JavaScript Debugger (1.0), JavaScript Intention Power Pack (0.9.4), JavaScript Support (1.0), Jetty Integration (1.0), Kotlin (1.2.10-release-IJ2017.3-1), Less support (173.4548.28), Markdown support (173.4548.28), Maven Integration (173.4548.28), Maven Integration Extension (173.4548.28), Mercurial Integration (10.0), OpenShift integration (1.0), Osmorc (1.4.11), Perforce Integration (2.0), Persistence Frameworks Support (1.0), Playframework Support (1.0), Plugin DevKit (1.0), Properties Support (173.4548.28), QuirksMode (173.4548.28), REST Client (173.4548.28), Refactor-X (2.01), Remote Hosts Access (0.1), Resin Integration (8.1), SSH Remote Run (0.1), Sass support (173.4548.28), Settings Repository (173.4548.28), Spring AOP/@AspectJ (1.0), Spring Batch (1.0), Spring Boot (1.0), Spring Data (1.0), Spring Integration Patterns (1.0), Spring MVC (1.0), Spring OSGi (1.0), Spring Security (1.0), Spring Support (1.0), Spring Web Flow (1.0), Spring Web Services (1.0), Spring WebSocket (1.0), Spy-js (173.4548.28), Struts 1.x (2.0), Struts 2 (1.0), Stylus support (999.999), Subversion Integration (1.1), TFS Integration (999.999), Tapestry support (1.0), Task Management (1.0), Terminal (0.1), TestNG-J (8.0), Thymeleaf (1.0), Time Tracking (1.0), Tomcat and TomEE Integration (1.0), UI Designer (173.4548.28), UML Support (1.0), Vaadin Support (1.0), Velocity support (1.0), W3C Validators (2.0), WebLogic Integration (1.0), WebSphere Integration (1.0), XPathView + XSLT Support (4), XSLT-Debugger (1.4), YAML (173.4548.28), ZKM-Unscramble (1.0), dmServer Support (0.9.5), tslint (173.4548.28) 
+2018-02-27 13:35:27,467 [  58350]   INFO - cloudConfig.CloudConfigManager - === Exit: JBA_NOT_FOUND === 
+2018-02-27 13:35:27,713 [  58596]   INFO - ellij.vfs.persistent.FSRecords - Marking VFS as corrupted: '/home/robuntu/.IntelliJIdea2017.3/system/caches/names.dat' does not exist 
+2018-02-27 13:35:27,720 [  58603]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=713 
+2018-02-27 13:35:27,845 [  58728]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /opt/IntelliJ/bin/fsnotifier64 
+2018-02-27 13:35:27,853 [  58736]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2018-02-27 13:35:31,093 [  61976]   INFO - .history.utils.LocalHistoryLog - local history version mismatch (was: 0, expected: 6), rebuilding... 
+2018-02-27 13:35:31,093 [  61976]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2018-02-27 13:35:31,414 [  62297]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2018-02-27 13:35:31,458 [  62341]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.OptionsTopHitProvider$Activity@12d3f7e7 
+2018-02-27 13:35:31,710 [  62593]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2018-02-27 13:35:31,815 [  62698]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2018-02-27 13:35:33,526 [  64409]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:1562 
+2018-02-27 13:35:33,582 [  64465]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:55 
+2018-02-27 13:35:34,181 [  65064]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:587 
+2018-02-27 13:35:34,192 [  65075]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:10 
+2018-02-27 13:35:37,810 [  68693]   INFO - ij.psi.stubs.StubUpdatingIndex - Following new file types will be indexed:Kotlin,Less,CSS,TypeScript,SWF,Markdown,Flow,Groovy,XML,JSX Harmony,KJSM,CLASS,Properties,SCSS,CoffeeScript,HTML,JSP,spring.factories,ActionScript,SQL,JAVA,CFML,Sass,JavaScript,AspectJ,TypeScript JSX,Stylus,Literate CoffeeScript,kotlin_builtins,FTL,ECMAScript 6 
+2018-02-27 13:35:37,892 [  68775]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.versions.KotlinJvmMetadataVersionIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:54)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,917 [  68800]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.versions.KotlinJsMetadataVersionIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:55)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,921 [  68804]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.vfilefinder.KotlinClassFileIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:56)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,924 [  68807]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.vfilefinder.KotlinJavaScriptMetaFileIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:57)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,935 [  68818]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFileIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:58)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,938 [  68821]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFilePackageIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:59)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,948 [  68831]   INFO - il.indexing.FileBasedIndexImpl - Rebuild requested for index org.jetbrains.kotlin.idea.vfilefinder.KotlinModuleMappingIndex 
+java.lang.Throwable
+	at com.intellij.util.indexing.FileBasedIndex.requestRebuild(FileBasedIndex.java:68)
+	at org.jetbrains.kotlin.idea.versions.KotlinUpdatePluginComponent.initComponent(KotlinUpdatePluginComponent.kt:60)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl$ComponentConfigComponentAdapter.getComponentInstance(ComponentManagerImpl.java:497)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.createComponents(ComponentManagerImpl.java:119)
+	at com.intellij.openapi.application.impl.ApplicationImpl.a(ApplicationImpl.java:447)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:157)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.a(CoreProgressManager.java:543)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:488)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:94)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:144)
+	at com.intellij.openapi.application.impl.ApplicationImpl.createComponents(ApplicationImpl.java:454)
+	at com.intellij.openapi.components.impl.ComponentManagerImpl.init(ComponentManagerImpl.java:103)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:406)
+	at com.intellij.openapi.application.impl.ApplicationImpl.load(ApplicationImpl.java:392)
+	at com.intellij.idea.IdeaApplication.run(IdeaApplication.java:203)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.idea.MainImpl$1$1.a(MainImpl.java:65)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:346)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2018-02-27 13:35:37,969 [  68852]   INFO - plication.impl.ApplicationImpl - 98 application components initialized in 16606ms 
+2018-02-27 13:35:38,038 [  68921]   INFO - .intellij.idea.IdeaApplication - App initialization took 79789 ms 
+2018-02-27 13:35:39,740 [  70623]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/repository2-1.xml 
+2018-02-27 13:35:44,714 [  75597]   INFO - pl$FileIndexDataInitialization - Initialization done:11139 
+2018-02-27 13:35:45,002 [  75885]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/addons_list-3.xml 
+2018-02-27 13:35:45,411 [  76294]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/android/sys-img2-1.xml 
+2018-02-27 13:35:46,617 [  77500]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/android-wear/sys-img2-1.xml 
+2018-02-27 13:35:46,780 [  77663]   INFO - exImpl$StubIndexInitialization - Initialization done:2065 
+2018-02-27 13:35:46,921 [  77804]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/android-wear-cn/sys-img2-1.xml 
+2018-02-27 13:35:47,170 [  78053]   INFO - ellij.project.impl.ProjectImpl - 20 project components initialized in 2557 ms 
+2018-02-27 13:35:47,255 [  78138]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/android-tv/sys-img2-1.xml 
+2018-02-27 13:35:47,523 [  78406]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@409027de 
+2018-02-27 13:35:47,591 [  78474]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/google_apis/sys-img2-1.xml 
+2018-02-27 13:35:48,093 [  78976]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/sys-img/google_apis_playstore/sys-img2-1.xml 
+2018-02-27 13:35:48,410 [  79293]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/addon2-1.xml 
+2018-02-27 13:35:49,200 [  80083]   INFO - j.ide.ui.OptionsTopHitProvider - 5656 ms spent to cache options in application 
+2018-02-27 13:35:49,472 [  80355]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/glass/addon2-1.xml 
+2018-02-27 13:35:49,675 [  80558]   INFO - dea.updater.SdkComponentSource - Downloading https://dl.google.com/android/repository/extras/intel/addon2-1.xml 
+2018-02-27 13:35:49,920 [  80803]   WARN - dea.updater.SdkComponentSource - File /home/robuntu/.android/repositories.cfg could not be loaded. 
+2018-02-27 13:35:57,773 [  88656]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@c70c311 
+2018-02-27 13:35:59,575 [  90458]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@3580186d 
+2018-02-27 13:37:27,324 [ 178207]   INFO - util.EmbeddedDistributionPaths - Looking for embedded Maven repo at '/prebuilts/tools/common/offline-m2' 
+2018-02-27 13:37:27,327 [ 178210]   INFO - ugin.AndroidPluginGeneration$1 - 'gradle' plugin missing from the offline Maven repo, will use default 2.3.0 
+2018-02-27 13:37:30,965 [ 181848]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/build-tools/27.0.3/package.xml 
+2018-02-27 13:37:31,012 [ 181895]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/emulator/package.xml 
+2018-02-27 13:37:31,046 [ 181929]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/extras/android/m2repository/package.xml 
+2018-02-27 13:37:31,065 [ 181948]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/extras/google/m2repository/package.xml 
+2018-02-27 13:37:31,109 [ 181992]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/patcher/v4/package.xml 
+2018-02-27 13:37:31,150 [ 182033]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/platform-tools/package.xml 
+2018-02-27 13:37:31,203 [ 182086]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/platforms/android-27/package.xml 
+2018-02-27 13:37:31,243 [ 182126]   INFO - s.RepoProgressIndicatorAdapter - Parsing /opt/Android/tools/package.xml 
+2018-02-27 13:37:31,564 [ 182447]   WARN - s.RepoProgressIndicatorAdapter - File /home/robuntu/.android/repositories.cfg could not be loaded. 
+2018-02-27 13:37:31,564 [ 182447]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/repository2-1.xml 
+2018-02-27 13:37:31,898 [ 182781]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/android/sys-img2-1.xml 
+2018-02-27 13:37:32,064 [ 182947]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/android-wear/sys-img2-1.xml 
+2018-02-27 13:37:32,240 [ 183123]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/android-wear-cn/sys-img2-1.xml 
+2018-02-27 13:37:32,384 [ 183267]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/android-tv/sys-img2-1.xml 
+2018-02-27 13:37:32,537 [ 183420]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/google_apis/sys-img2-1.xml 
+2018-02-27 13:37:32,754 [ 183637]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/sys-img/google_apis_playstore/sys-img2-1.xml 
+2018-02-27 13:37:32,898 [ 183781]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/addon2-1.xml 
+2018-02-27 13:37:33,135 [ 184018]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/glass/addon2-1.xml 
+2018-02-27 13:37:33,236 [ 184119]   INFO - s.RepoProgressIndicatorAdapter - Downloading https://dl.google.com/android/repository/extras/intel/addon2-1.xml 
+2018-02-27 13:37:38,976 [ 189859]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2018-02-27 13:37:38,977 [ 189860]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2018-02-27 13:37:38,978 [ 189861]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2018-02-27 13:37:39,266 [ 190149]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2018-02-27 13:37:39,292 [ 190175]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2018-02-27 13:37:39,299 [ 190182]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 15 auto-detected files
+Elapsed time on auto-detect: 115 ms 
+2018-02-27 13:37:39,333 [ 190216]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2018-02-27 13:37:39,480 [ 190363]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2018-02-27 13:37:39,488 [ 190371]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2018-02-27 13:37:39,518 [ 190401]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2018-02-27 13:37:39,540 [ 190423]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2018-02-27 13:38:03,122 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2018-02-27 13:38:03,148 [     26]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2018-02-27 13:38:03,148 [     26]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.1666666 (IDE-managed HiDPI) 
+2018-02-27 13:38:03,184 [     62]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IU-173.4548.28, 29 Jan 2018 17:03) 
+2018-02-27 13:38:03,184 [     62]   INFO -        #com.intellij.idea.Main - OS: Linux (4.4.86-11979-g09b49365a3c4, amd64) 
+2018-02-27 13:38:03,184 [     62]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_161-b12 (Oracle Corporation) 
+2018-02-27 13:38:03,184 [     62]   INFO -        #com.intellij.idea.Main - JVM: 25.161-b12 (Java HotSpot(TM) 64-Bit Server VM) 
+2018-02-27 13:38:03,189 [     67]   INFO -        #com.intellij.idea.Main - JVM Args: -Xbootclasspath/a:/opt/IntelliJ/lib/boot.jar -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine -XX:ErrorFile=/home/robuntu/java_error_in_IDEA_%p.log -XX:HeapDumpPath=/home/robuntu/java_error_in_IDEA.hprof -Didea.paths.selector=IntelliJIdea2017.3 -Djb.vmOptionsFile=/opt/IntelliJ/bin/idea64.vmoptions -Didea.jre.check=true 
+2018-02-27 13:38:03,193 [     71]   INFO -        #com.intellij.idea.Main - ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@533d95dd[Running, parallelism = 1, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0] 
+2018-02-27 13:38:03,195 [     73]   INFO -        #com.intellij.idea.Main - ext: /usr/lib/jvm/java-8-oracle/jre/lib/ext: [jfxrt.jar, zipfs.jar, sunjce_provider.jar, cldrdata.jar, jaccess.jar, meta-index, sunec.jar, dnsns.jar, nashorn.jar, localedata.jar, sunpkcs11.jar] 
+2018-02-27 13:38:03,195 [     73]   INFO -        #com.intellij.idea.Main - JNU charset: ANSI_X3.4-1968 
+2018-02-27 13:38:03,239 [    117]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 40 ms 
+2018-02-27 13:38:05,672 [   2550]   INFO - .intellij.idea.IdeaApplication - WM detected: Xfwm4 
+2018-02-27 13:38:09,564 [   6442]   INFO - llij.ide.plugins.PluginManager - 130 plugins initialized in 3234 ms 
+2018-02-27 13:38:09,569 [   6447]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: ASP (0.1), Android Support (10.2.3), AngularJS (173.4548.28), Ant Support (1.0), Application Servers View (0.2.0), AspectJ Support (1.2), Bytecode Viewer (0.1), CFML Support (3.53), CSS Support (173.4548.28), CVS Integration (11), Cloud Foundry integration (1.0), CloudBees integration (1.0), CoffeeScript (2.0), Copyright (8.1), Coverage (173.4548.28), Cucumber for Groovy (999.999), Cucumber for Java (999.999), DSM Analysis (1.0.0), Database Tools and SQL (173.4548.28), Eclipse Integration (3.0), EditorConfig (173.4548.28), Emma (173.4548.28), Flash/Flex Support (173.4548.28), FreeMarker support (1.0), GWT Support (1.0), Geronimo Integration (1.0), Gherkin (999.999), Git Integration (8.1), GitHub (173.4548.28), GlassFish Integration (1.0), Google App Engine Integration (1.1.4), Gradle (173.4548.28), Grails (9.0), Groovy (9.0), Guice (8.0), HTML Tools (2.0), Haml (173.4548.28), Heroku integration (173.4548.28), Hibernate Support (1.0), I18n for Java (173.4548.28), IDE Settings Sync (173.4548.28), IDEA CORE (173.4548.28), IntelliLang (8.0), J2ME (1.0), JBoss Arquillian Support (1.0), JBoss Drools Support (1.0), JBoss Frameworks Base Support (1.0), JBoss Integration (1.0), JBoss Seam Pageflow Support (1.0), JBoss Seam Pages Support (1.0), JBoss Seam Support (1.0), JBoss jBPM (2.0.0), JSR45 Integration (1.0), JUnit (1.0), Java Bytecode Decompiler (173.4548.28), Java EE: Batch Applications (1.0), Java EE: Bean Validation Support (1.1), Java EE: Contexts and Dependency Injection (1.1), Java EE: EJB, JPA, Servlets (1.0), Java EE: JMS, JSON Processing, Concurrency, Transaction  (1.0), Java EE: Java Server Faces (2.2.X.), Java EE: RESTful Web Services (JAX-RS) (1.0), Java EE: Web Services (JAX-WS) (1.9), Java EE: WebSockets (1.0), Java Server Pages (JSP) Integration (1.0), Java Stream Debugger (173.4548.28), JavaFX (1.0), JavaScript Debugger (1.0), JavaScript Intention Power Pack (0.9.4), JavaScript Support (1.0), Jetty Integration (1.0), Kotlin (1.2.10-release-IJ2017.3-1), Less support (173.4548.28), Markdown support (173.4548.28), Maven Integration (173.4548.28), Maven Integration Extension (173.4548.28), Mercurial Integration (10.0), OpenShift integration (1.0), Osmorc (1.4.11), Perforce Integration (2.0), Persistence Frameworks Support (1.0), Playframework Support (1.0), Plugin DevKit (1.0), Properties Support (173.4548.28), QuirksMode (173.4548.28), REST Client (173.4548.28), Refactor-X (2.01), Remote Hosts Access (0.1), Resin Integration (8.1), SSH Remote Run (0.1), Sass support (173.4548.28), Settings Repository (173.4548.28), Spring AOP/@AspectJ (1.0), Spring Batch (1.0), Spring Boot (1.0), Spring Data (1.0), Spring Integration Patterns (1.0), Spring MVC (1.0), Spring OSGi (1.0), Spring Security (1.0), Spring Support (1.0), Spring Web Flow (1.0), Spring Web Services (1.0), Spring WebSocket (1.0), Spy-js (173.4548.28), Struts 1.x (2.0), Struts 2 (1.0), Stylus support (999.999), Subversion Integration (1.1), TFS Integration (999.999), Tapestry support (1.0), Task Management (1.0), Terminal (0.1), TestNG-J (8.0), Thymeleaf (1.0), Time Tracking (1.0), Tomcat and TomEE Integration (1.0), UI Designer (173.4548.28), UML Support (1.0), Vaadin Support (1.0), Velocity support (1.0), W3C Validators (2.0), WebLogic Integration (1.0), WebSphere Integration (1.0), XPathView + XSLT Support (4), XSLT-Debugger (1.4), YAML (173.4548.28), ZKM-Unscramble (1.0), dmServer Support (0.9.5), tslint (173.4548.28) 
+2018-02-27 13:38:12,413 [   9291]   INFO - cloudConfig.CloudConfigManager - === Exit: JBA_NOT_FOUND === 
+2018-02-27 13:38:12,644 [   9522]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=713 
+2018-02-27 13:38:12,793 [   9671]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: /opt/IntelliJ/bin/fsnotifier64 
+2018-02-27 13:38:12,822 [   9700]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2018-02-27 13:38:16,655 [  13533]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2018-02-27 13:38:16,689 [  13567]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.OptionsTopHitProvider$Activity@564020c8 
+2018-02-27 13:38:17,005 [  13883]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2018-02-27 13:38:17,177 [  14055]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2018-02-27 13:38:18,805 [  15683]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:1269 
+2018-02-27 13:38:18,858 [  15736]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:53 
+2018-02-27 13:38:19,175 [  16053]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:288 
+2018-02-27 13:38:19,188 [  16066]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:2 
+2018-02-27 13:38:21,154 [  18032]   INFO - plication.impl.ApplicationImpl - 98 application components initialized in 14836ms 
+2018-02-27 13:38:21,248 [  18126]   INFO - .intellij.idea.IdeaApplication - App initialization took 20257 ms 
+2018-02-27 13:38:24,089 [  20967]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=1.0; restored: fontSize=14, fontScale=1.1666666 
+2018-02-27 13:38:24,101 [  20979]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=14, fontScale=1.1666666; restored: fontSize=14, fontScale=1.1666666 
+2018-02-27 13:38:26,685 [  23563]   INFO - pl$FileIndexDataInitialization - Initialization done:7837 
+2018-02-27 13:38:27,098 [  23976]   INFO - exImpl$StubIndexInitialization - Initialization done:413 
+2018-02-27 13:38:28,873 [  25751]   INFO - ellij.project.impl.ProjectImpl - 20 project components initialized in 1757 ms 
+2018-02-27 13:38:29,791 [  26669]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.openapi.actionSystem.impl.ActionPreloader@25f8385b 
+2018-02-27 13:38:31,033 [  27911]   INFO - j.ide.ui.OptionsTopHitProvider - 4843 ms spent to cache options in application 
+2018-02-27 13:38:36,418 [  33296]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.ide.ui.search.SearchableOptionPreloader@6febca57 
+2018-02-27 13:38:38,125 [  35003]   INFO - .openapi.application.Preloader - Finished preloading com.intellij.codeInsight.completion.CompletionPreloader@b3c0c0e 
+2018-02-27 13:38:54,766 [  51644]   WARN - ConfigurableExtensionPointUtil - use other group instead of unexpected one: preferences.editor 
+2018-02-27 13:38:54,965 [  51843]   INFO - CompilerWorkspaceConfiguration - Available processors: 2 
+2018-02-27 13:39:19,666 [  76544]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2018-02-27 13:39:19,668 [  76546]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2018-02-27 13:39:19,668 [  76546]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2018-02-27 13:39:21,123 [  78001]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2018-02-27 13:39:21,134 [  78012]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2018-02-27 13:39:21,141 [  78019]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2018-02-27 13:39:21,189 [  78067]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2018-02-27 13:39:21,291 [  78169]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2018-02-27 13:39:21,306 [  78184]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2018-02-27 13:39:21,311 [  78189]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2018-02-27 13:39:21,331 [  78209]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 

@@ -1,0 +1,10 @@
+<application>
+  <component name="DimensionService">
+    <location key="FileChooserDialogImpl.0.0.1366.768" x="467" y="122" />
+    <location key="SettingsEditor.0.0.1366.768" x="169" y="0" />
+    <location key="new project wizard.0.0.1366.768" x="326" y="0" />
+    <size key="FileChooserDialogImpl.0.0.1366.768" width="430" height="497" />
+    <size key="SettingsEditor.0.0.1366.768" width="1030" height="737" />
+    <size key="new project wizard.0.0.1366.768" width="873" height="737" />
+  </component>
+</application>
