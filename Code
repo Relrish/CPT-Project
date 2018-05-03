@@ -1,0 +1,249 @@
+import pygame
+import time
+pygame.init()
+Black = (0, 0, 0)
+White = (255, 255, 255)
+Green = (0, 255, 0)
+Red = (255, 0, 0)
+Blue = (0, 0, 255)
+DGray = (128, 128, 128)
+LBlack = (90, 90, 90)
+Orange = (255,140,0)
+size = (1360, 700)
+left_move,right_move =0,0
+xvalue,yvalue=30,500
+j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
+done=False
+mapCounter = 0
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Jumper")
+clock=pygame.time.Clock()
+
+clock.tick(120)
+
+def cooldownJump():
+    global canJump
+    if jumpCooldown < 0:
+        canJump = True
+
+def map1():
+    screen.fill(Black)
+    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, LBlack, [200, 600], [300, 600], 5)
+    pygame.draw.line(screen, LBlack, [300, 500], [400, 500], 5)
+    pygame.draw.line(screen, LBlack, [100, 400], [200, 400], 5)
+    pygame.draw.line(screen, LBlack, [250, 300], [320, 300], 5)
+    pygame.draw.line(screen, LBlack, [400, 220], [500, 220], 5)
+    pygame.draw.line(screen, LBlack, [700, 500], [800, 500], 5)
+    pygame.draw.line(screen, LBlack, [870, 600], [920, 600], 5)
+    pygame.draw.line(screen, LBlack, [970, 600], [1010, 600], 5)
+    pygame.draw.line(screen, LBlack, [1080, 600], [1150, 600], 5)
+    pygame.draw.line(screen, LBlack, [1170, 540], [1360, 540], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.display.flip()
+
+def map2():
+    screen.fill(DGray)
+    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, LBlack, [250, 620], [300, 620], 5)
+    pygame.draw.line(screen, LBlack, [420, 560], [490, 560], 5)
+    pygame.draw.line(screen, LBlack, [500, 480], [600, 480], 5)
+    pygame.draw.line(screen, LBlack, [390, 380], [430, 380], 5)
+    pygame.draw.line(screen, LBlack, [190, 300], [270, 300], 5)
+    pygame.draw.line(screen, LBlack, [380, 220], [430, 220], 5)
+    pygame.draw.line(screen, LBlack, [520, 150], [640, 150], 5)
+    pygame.draw.line(screen, LBlack, [900, 640], [1000, 640], 5)
+    pygame.draw.line(screen, LBlack, [1100, 600], [1170, 600], 5)
+    pygame.draw.line(screen, LBlack, [1250, 520], [1360, 520], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.display.flip()
+
+def map3():
+    screen.fill(White)
+    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.display.flip()
+
+def map1func():
+    global yvalue, xvalue, gravity, canJump, mapCounter
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 166 and xvalue < 300 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 266 and xvalue < 400 and yvalue < 466 and yvalue > 462:
+        yvalue = 465
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 66 and xvalue < 200 and yvalue < 366 and yvalue > 362:
+        yvalue = 365
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 216 and xvalue < 320 and yvalue < 266 and yvalue > 262:
+        yvalue = 265
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 366 and xvalue < 500 and yvalue < 186 and yvalue > 182:
+        yvalue = 185
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 666 and xvalue < 800 and yvalue < 466 and yvalue > 462:
+        yvalue = 465
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 836 and xvalue < 920 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 946 and xvalue < 1010 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1046 and xvalue < 1150 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1046 and xvalue < 1150 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1136 and xvalue < 1360 and yvalue < 506 and yvalue > 502:
+        yvalue = 505
+        gravity = 0
+        cooldownJump()
+
+    if xvalue == 1325 and yvalue == 505:
+        xvalue, yvalue = 30, 500
+        mapCounter += 1
+
+def map2func():
+    global yvalue, xvalue, gravity, canJump, mapCounter
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 216 and xvalue < 300 and yvalue < 586 and yvalue > 582:
+        yvalue = 585
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 386 and xvalue < 490 and yvalue < 526 and yvalue > 522:
+        yvalue = 525
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 466 and xvalue < 600 and yvalue < 446 and yvalue > 442:
+        yvalue = 445
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 356 and xvalue < 430 and yvalue < 346 and yvalue > 342:
+        yvalue = 345
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 156 and xvalue < 270 and yvalue < 266 and yvalue > 262:
+        yvalue = 265
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 346 and xvalue < 430 and yvalue < 186 and yvalue > 182:
+        yvalue = 185
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 486 and xvalue < 640 and yvalue < 116 and yvalue > 112:
+        yvalue = 115
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 866 and xvalue < 1000 and yvalue < 606 and yvalue > 602:
+        yvalue = 605
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1066 and xvalue < 1170 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1216 and xvalue < 1360 and yvalue < 486 and yvalue > 482:
+        yvalue = 485
+        gravity = 0
+        cooldownJump()
+
+    if xvalue == 1325 and yvalue == 485:
+        xvalue, yvalue = 30, 500
+        mapCounter += 1
+
+def map3func():
+    global yvalue, xvalue, gravity, canJump, mapCounter
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+#Main Movement Loop
+while not done:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            done=True
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                left_move = -1
+            elif event.key == pygame.K_RIGHT:
+                right_move = 1
+            elif canJump == True:
+                    if event.key == pygame.K_UP:
+                        canJump = False
+                        jump = 6
+                        j = 0.1
+                        jumpCooldown = 2
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                left_move = 0
+            elif event.key == pygame.K_RIGHT:
+                right_move = 0
+            elif event.key == pygame.K_UP:
+                jump = 0
+                j = 0
+            elif event.key == pygame.K_q:
+                mapCounter -= 1
+            elif event.key == pygame.K_w:
+                mapCounter += 1
+#Gravity Code
+    gravity = gravity + 0.02
+    yvalue = yvalue + gravity
+#Floor/Platform Code
+    if yvalue >= 665:
+        xvalue, yvalue = 30, 500
+    canJump = False
+    if mapCounter == 0:
+        map1func()
+    elif mapCounter == 1:
+        map2func()
+    elif mapCounter == 2:
+        map3func()
+#Movement Code
+    xvalue += left_move + right_move
+    yvalue = yvalue - jump
+    if jump > 0:
+        jump = jump - j
+    else:
+        jump = 0
+    jumpCooldown -= 1
+#Restriction Code
+    if xvalue < 0:
+        xvalue = 0
+    elif xvalue > 1325:
+        xvalue = 1325
+    elif yvalue < 0:
+        yvalue = 0
+#Redrawing Code
+    if mapCounter == 0:
+        map1()
+    elif mapCounter == 1:
+        map2()
+    elif mapCounter == 2:
+        map3()
+    #temporary
+
+
+
+
