@@ -1,14 +1,12 @@
 import pygame
 import time
 pygame.init()
-Black = (0, 0, 0)
-White = (255, 255, 255)
-Green = (0, 255, 0)
-Red = (255, 0, 0)
-Blue = (0, 0, 255)
-DGray = (128, 128, 128)
-LBlack = (90, 90, 90)
+Black, White, DGray, LBlack = (0, 0, 0) ,(255, 255, 255), (128, 128, 128),(90, 90, 90)
 Orange = (255,140,0)
+
+#temporary
+Green, Red, Blue = (0, 255, 0), (255, 0, 0), (0, 0, 255)
+
 size = (1360, 700)
 left_move,right_move =0,0
 xvalue,yvalue=30,500
@@ -235,6 +233,8 @@ while not done:
         xvalue = 1325
     elif yvalue < 0:
         yvalue = 0
+        jump = 0
+        j = 0
 #Redrawing Code
     if mapCounter == 0:
         map1()
@@ -243,7 +243,6 @@ while not done:
     elif mapCounter == 2:
         map3()
     #temporary
-
 
 
 
