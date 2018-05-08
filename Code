@@ -71,7 +71,7 @@ def map3():
     pygame.draw.line(screen, Blue, [600, 440], [680, 440], 5)
     pygame.draw.line(screen, Green, [760, 370], [800, 370], 5)
     pygame.draw.line(screen, Red, [850, 230], [930, 230], 5)
-    pygame.draw.line(screen, Red, [1080, 200], [1170, 200], 5)
+    pygame.draw.line(screen, Red, [1040, 200], [1170, 200], 5)
     pygame.draw.line(screen, Red, [1000, 600], [1070, 600], 5)
     pygame.draw.line(screen, Red, [1200, 580], [1360, 580], 5)
 
