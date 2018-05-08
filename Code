@@ -62,6 +62,21 @@ def map3():
     screen.fill(White)
     pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, Blue, [185, 500], [220, 500], 5)
+    pygame.draw.line(screen, Green, [10, 420], [70, 420], 5)
+    pygame.draw.line(screen, Red, [120, 330], [190, 330], 5)
+    pygame.draw.line(screen, Blue, [40, 220], [90, 220], 5)
+    pygame.draw.line(screen, Green, [180, 100], [250, 100], 5)
+    pygame.draw.line(screen, Red, [350, 100], [420, 100], 5)
+    pygame.draw.line(screen, Blue, [600, 440], [680, 440], 5)
+    pygame.draw.line(screen, Green, [760, 370], [800, 370], 5)
+    pygame.draw.line(screen, Red, [850, 230], [930, 230], 5)
+    pygame.draw.line(screen, Red, [1080, 200], [1170, 200], 5)
+    pygame.draw.line(screen, Red, [1000, 600], [1070, 600], 5)
+    pygame.draw.line(screen, Red, [1200, 580], [1360, 580], 5)
+
+    # Lava pool tile
+    pygame.draw.line(screen, Red, [1140, 400], [1360, 400], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
@@ -154,7 +169,7 @@ def map2func():
         yvalue = 115
         gravity = 0
         cooldownJump()
-    elif xvalue > 866 and xvalue < 1000 and yvalue < 606 and yvalue > 602:
+    elif xvalue > 866 and xvalue < 1000 and yvalue < 608 and yvalue > 602:
         yvalue = 605
         gravity = 0
         cooldownJump()
@@ -177,6 +192,42 @@ def map3func():
         yvalue = 565
         gravity = 0
         cooldownJump()
+    elif xvalue > 151 and xvalue < 220 and yvalue < 466 and yvalue > 462:
+        yvalue = 465
+        gravity = 0
+        cooldownJump()
+    elif xvalue > -24 and xvalue < 70 and yvalue < 386 and yvalue > 382:
+        yvalue = 385
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 86 and xvalue < 190 and yvalue < 296 and yvalue > 292:
+        yvalue = 295
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 6 and xvalue < 90 and yvalue < 186 and yvalue > 182:
+        yvalue = 185
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 146 and xvalue < 250 and yvalue < 66 and yvalue > 62:
+        yvalue = 65
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 316 and xvalue < 420 and yvalue < 66 and yvalue > 62:
+        yvalue = 65
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 566 and xvalue < 680 and yvalue < 406 and yvalue > 402:
+        yvalue = 405
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 726 and xvalue < 800 and yvalue < 336 and yvalue > 332:
+        yvalue = 335
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 816 and xvalue < 930 and yvalue < 196 and yvalue > 192:
+        yvalue = 195
+        gravity = 0
+        cooldownJump()
 #Main Movement Loop
 while not done:
     for event in pygame.event.get():
@@ -193,6 +244,8 @@ while not done:
                         jump = 6
                         j = 0.1
                         jumpCooldown = 2
+            elif event.key == pygame.K_SPACE:
+                gravity = 0
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_move = 0
