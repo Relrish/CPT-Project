@@ -1,8 +1,8 @@
 import pygame
 import time
 pygame.init()
-Black, White, DGray, LBlack = (0, 0, 0) ,(255, 255, 255), (128, 128, 128),(90, 90, 90)
-Orange = (255,140,0)
+Black, LBlack, DGray, Gray, LGray, Silver, White = (0,0,0), (105,105,105), (128,128,128), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
+Orange, DRed = (255,140,0), (128,0,0)
 
 #temporary
 Green, Red, Blue = (0, 255, 0), (255, 0, 0), (0, 0, 255)
@@ -13,6 +13,7 @@ xvalue,yvalue=30,500
 j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
 done=False
 mapCounter = 0
+key = 0
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
 clock=pygame.time.Clock()
@@ -59,24 +60,67 @@ def map2():
     pygame.display.flip()
 
 def map3():
-    screen.fill(White)
+    screen.fill(Gray)
     pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
-    pygame.draw.line(screen, Blue, [185, 500], [220, 500], 5)
-    pygame.draw.line(screen, Green, [10, 420], [70, 420], 5)
-    pygame.draw.line(screen, Red, [120, 330], [190, 330], 5)
-    pygame.draw.line(screen, Blue, [40, 220], [90, 220], 5)
-    pygame.draw.line(screen, Green, [180, 100], [250, 100], 5)
-    pygame.draw.line(screen, Red, [350, 100], [420, 100], 5)
-    pygame.draw.line(screen, Blue, [600, 440], [680, 440], 5)
-    pygame.draw.line(screen, Green, [760, 370], [800, 370], 5)
-    pygame.draw.line(screen, Red, [850, 230], [930, 230], 5)
-    pygame.draw.line(screen, Red, [1040, 200], [1170, 200], 5)
-    pygame.draw.line(screen, Red, [1000, 600], [1070, 600], 5)
-    pygame.draw.line(screen, Red, [1200, 580], [1360, 580], 5)
+    pygame.draw.line(screen, LBlack, [185, 500], [220, 500], 5)
+    pygame.draw.line(screen, LBlack, [10, 420], [70, 420], 5)
+    pygame.draw.line(screen, LBlack, [120, 330], [190, 330], 5)
+    pygame.draw.line(screen, LBlack, [40, 220], [90, 220], 5)
+    pygame.draw.line(screen, LBlack, [180, 100], [250, 100], 5)
+    pygame.draw.line(screen, LBlack, [350, 100], [420, 100], 5)
+    pygame.draw.line(screen, LBlack, [600, 440], [680, 440], 5)
+    pygame.draw.line(screen, LBlack, [760, 370], [800, 370], 5)
+    pygame.draw.line(screen, LBlack, [850, 230], [930, 230], 5)
+    pygame.draw.line(screen, LBlack, [1040, 200], [1170, 200], 5)
+    pygame.draw.line(screen, LBlack, [1000, 600], [1070, 600], 5)
+    pygame.draw.line(screen, LBlack, [1200, 580], [1360, 580], 5)
 
     # Lava pool tile
-    pygame.draw.line(screen, Red, [1140, 400], [1360, 400], 5)
+    pygame.draw.line(screen,Orange, [1140,393], [1360, 393],8)
+    pygame.draw.line(screen, DRed, [1140, 400], [1360, 400], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+
+    if key == 0:
+        pygame.draw.rect(screen, Green, [1095, 160, 20, 20], 5)
+        pygame.draw.line(screen, Orange, [1135,390], [1135, 1360], 8)
+    else:
+        pygame.draw.line(screen, DRed, [1140, 385], [1140, 402], 5)
+    pygame.display.flip()
+
+def map4():
+    screen.fill(LGray)
+    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+
+    if key == 0:
+        # lava BESIDE blue platform
+        pygame.draw.line(screen, Red, [396, 193], [396, 700], 8)
+        pygame.draw.line(screen, Red, [550, 193], [550, 500], 8)
+
+        # lava FALLING ON blue platform
+        pygame.draw.line(screen, Red, [450, 0], [450, 196], 8)
+
+        # lava ON blue platform
+        pygame.draw.line(screen, Red, [400, 196], [546, 196], 8)
+        pygame.draw.line(screen, Blue, [400, 202], [546, 202], 5)
+
+        # lava ON green platform
+        pygame.draw.line(screen, Red, [500, 494], [600, 494], 8)
+        pygame.draw.line(screen, Green, [500, 500], [600, 500], 5)
+
+        # lava BESIDE green platform
+        pygame.draw.line(screen, Red, [496, 491], [496, 700], 8)
+        pygame.draw.line(screen, Red, [604, 491], [604, 700], 8)
+
+        # after key aquire
+        pygame.draw.line(screen, Blue, [400, 187], [400, 204], 5)
+        pygame.draw.line(screen, Blue, [546, 187], [546, 204], 5)
+
+
+    else:
+        pygame.draw.line(screen, DRed, [1140, 385], [1140, 402], 5)
+
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
@@ -187,7 +231,7 @@ def map2func():
         mapCounter += 1
 
 def map3func():
-    global yvalue, xvalue, gravity, canJump, mapCounter
+    global yvalue, xvalue, gravity, canJump, mapCounter, key
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
         gravity = 0
@@ -228,6 +272,39 @@ def map3func():
         yvalue = 195
         gravity = 0
         cooldownJump()
+    elif xvalue > 1006 and xvalue < 1170 and yvalue < 166 and yvalue > 162:
+        yvalue = 165
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 966 and xvalue < 1070 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 1166 and xvalue < 1360 and yvalue < 546 and yvalue > 542:
+        yvalue = 545
+        gravity = 0
+        cooldownJump()
+
+    elif xvalue > 1106 and xvalue < 1360 and yvalue < 366 and yvalue > 362:
+        xvalue, yvalue, key = 30, 500, 0
+    if key == 0:
+        if xvalue > 1101 and xvalue < 1143 and yvalue < 700 and yvalue > 356:
+            xvalue, yvalue, key = 30, 500, 0
+    if xvalue > 1060 and xvalue < 1115 and yvalue < 194 and yvalue > 126:
+        key = 1
+
+    if xvalue == 1325 and yvalue == 545:
+        xvalue, yvalue = 30, 500
+        mapCounter += 1
+        key = 0
+
+def map4func():
+    global yvalue, xvalue, gravity, canJump, mapCounter, key
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        gravity = 0
+        cooldownJump()
+
 #Main Movement Loop
 while not done:
     for event in pygame.event.get():
@@ -258,12 +335,16 @@ while not done:
                 mapCounter -= 1
             elif event.key == pygame.K_w:
                 mapCounter += 1
+            elif event.key == pygame.K_e:
+                key -= 1
+            elif event.key == pygame.K_r:
+                key += 1
 #Gravity Code
     gravity = gravity + 0.02
     yvalue = yvalue + gravity
 #Floor/Platform Code
     if yvalue >= 665:
-        xvalue, yvalue = 30, 500
+        xvalue, yvalue, key = 30, 500, 0
     canJump = False
     if mapCounter == 0:
         map1func()
@@ -271,6 +352,9 @@ while not done:
         map2func()
     elif mapCounter == 2:
         map3func()
+    elif mapCounter == 3:
+        map4func()
+
 #Movement Code
     xvalue += left_move + right_move
     yvalue = yvalue - jump
@@ -295,7 +379,10 @@ while not done:
         map2()
     elif mapCounter == 2:
         map3()
-    #temporary
+    elif mapCounter == 3:
+        map4()
 
+
+    # temporary
 
 
