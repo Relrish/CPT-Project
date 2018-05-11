@@ -363,9 +363,9 @@ while not done:
             elif event.key == pygame.K_w:
                 mapCounter += 1
             elif event.key == pygame.K_e:
-                key -= 1
+                key1 -= 1
             elif event.key == pygame.K_r:
-                key += 1
+                key1 += 1
 #Gravity Code
     gravity = gravity + 0.02
     yvalue = yvalue + gravity
