@@ -1,0 +1,101 @@
+import pygame
+pygame.init()
+
+
+Black, LBlack, DGray, Gray, White = (0,0,0), (105,105,105), (128,128,128), (169,169,169), (255,255,255)
+Green = (0, 255, 0)
+Red = (255, 0, 0)
+Blue = (0, 0, 255)
+size = (1360, 700)
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Professor Craven's Cool Game")
+done = False
+clock = pygame.time.Clock()
+clock.tick(120)
+while not done:
+    for event in pygame.event.get(): # User did something
+        if event.type == pygame.QUIT: # If user clicked close
+            done = True # Flag that we are done so we exit this loop
+    screen.fill(White)
+
+    pygame.draw.line(screen, Orange, [1135, 390], [1135, 700], 8)
+    xvalue > 1101 and xvalue < 1143 and yvalue < 700 and yvalue > 356
+    #-34 +8 same -34
+
+    if key1 == 0:
+        if xvalue > 362 and xvalue < 404 and yvalue < 700 and yvalue > 159:
+            xvalue, yvalue, key1 = 30, 500, 0
+        elif xvalue > 516 and xvalue < 558 and yvalue < 500 and yvalue > 159:
+            reset()
+        elif xvalue > 416 and xvalue < 458 and yvalue < 196 and yvalue > -34:
+
+    #pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    #pygame.draw.line(screen, Blue, [180, 520], [230, 520], 5)
+    #pygame.draw.line(screen, Red, [300, 450], [370, 450], 5)
+    #pygame.draw.line(screen, LBlack, [50, 400], [120, 400], 5)
+    #pygame.draw.line(screen, LBlack, [120, 320], [150, 320], 5)
+    #pygame.draw.line(screen, LBlack, [200, 250], [270, 250], 5)
+    #pygame.draw.line(screen, LBlack, [60, 150], [100, 150], 5)
+#lava BESIDE blue platform
+    pygame.draw.line(screen, Red, [396, 193], [396, 700], 8)
+    pygame.draw.line(screen, Red, [550,193], [550,500], 8)
+#lava FALLING ON blue platform
+    pygame.draw.line(screen, Red, [450, 0], [450, 196], 8)
+#lava ON blue platform
+    pygame.draw.line(screen, Red, [400, 196], [546, 196], 8)
+    pygame.draw.line(screen, Blue, [400, 202], [546, 202], 5)
+#lava ON green platform
+    pygame.draw.line(screen, Red, [500,494], [600, 494], 8)
+    pygame.draw.line(screen, Green, [500, 500], [600, 500], 5)
+#lava BESIDE green platform
+    pygame.draw.line(screen, Red, [496,491], [496,700], 8)
+    pygame.draw.line(screen, Red, [604,491], [604,700], 8)
+#after key aquire
+    pygame.draw.line(screen, Blue, [400, 187], [400, 204], 5)
+    pygame.draw.line(screen, Blue, [546, 187], [546, 204], 5)
+
+    pygame.draw.line(screen, Blue, [700, 450], [800, 450], 5)
+    pygame.draw.line(screen, Green, [860, 400], [900, 400], 5)
+    pygame.draw.line(screen, Red, [1040, 600], [1120, 600], 5)
+    pygame.draw.line(screen, LBlack, [970, 300], [1020, 300], 5)
+    pygame.draw.line(screen, LBlack, [790, 240], [870, 240], 5)
+    pygame.draw.line(screen, Blue, [650, 200], [720, 200], 5)
+    pygame.draw.line(screen, Green, [520, 130], [600, 130], 5)
+    pygame.draw.line(screen, Red, [1240, 600], [1360, 600], 5)
+#lava ON gren platform
+    pygame.draw.line(screen, Red, [1200, 394], [1300, 394], 8)
+    pygame.draw.line(screen, Green, [1200, 400], [1300, 400], 5)
+#green block
+    pygame.draw.line(screen, Green, [1300, 385], [1300, 402], 5)
+#lava FALLING OFF gren platform
+    pygame.draw.line(screen, Red, [1196, 391], [1196, 700], 8)
+#lava FALLING ON gren platform
+    pygame.draw.line(screen, Red, [1283, 0], [1283, 394], 8)
+#after key aquire
+    pygame.draw.line(screen, Green, [1200, 385], [1200, 402], 5)
+    #Lava pool tile
+    #pygame.draw.line(screen, Red, [1140, 400], [1360, 400], 5)
+#pygame.draw.line(screen, Green, [0, 600], [300, 600], 5)
+#-34, nothing    -34, -38
+# yvalue - 1
+
+#for key xvalue = +30 yvalue = -40
+
+    pygame.draw.rect(screen, Green, [550, 90, 20, 20], 5)
+    pygame.draw.rect(screen, Green, [70, 110, 20, 20], 5)
+
+
+    elif xvalue > 86 and xvalue < 150 and yvalue < 286 and yvalue > 282:
+        yvalue = 285
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 166 and xvalue < 270 and yvalue < 216 and yvalue > 212:
+        yvalue = 215
+        gravity = 0
+        cooldownJump()
+    elif xvalue > 26 and xvalue < 100 and yvalue < 116 and yvalue > 112:
+        yvalue = 115
+        gravity = 0
+        cooldownJump()
+
+    pygame.display.flip()
