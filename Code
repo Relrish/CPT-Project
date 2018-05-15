@@ -1,11 +1,11 @@
 import pygame
 import time
 pygame.init()
-Black, LBlack, DGray, Gray, LGray, Silver, White = (0,0,0), (105,105,105), (128,128,128), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
-Orange, DRed = (255,140,0), (128,0,0)
+Black, LBlack, DGray, Gray, LGray, Silver, White = (70,70,70), (105,105,105), (140,140,140), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
+Orange, DRed, Green = (255,140,0), (128,0,0), (0, 255, 0)
 
 #temporary
-Green, Red, Blue = (0, 255, 0), (255, 0, 0), (0, 0, 255)
+Red, Blue = (255, 0, 0), (0, 0, 255)
 
 size = (1360, 700)
 left_move,right_move =0,0
@@ -13,7 +13,7 @@ xvalue,yvalue=30,500
 j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
 done=False
 mapCounter = 0
-key1, key2 = 0,0
+key1, key2 = False,False
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
 clock=pygame.time.Clock()
@@ -21,13 +21,14 @@ clock=pygame.time.Clock()
 clock.tick(120)
 
 def cooldownJump():
-    global canJump
+    global canJump,gravity
+    gravity = 0
     if jumpCooldown < 0:
         canJump = True
 
 def reset():
     global xvalue,yvalue,key1,key2
-    xvalue, yvalue, key1, key2 = 30, 500, 0, 0
+    xvalue, yvalue, key1, key2 = 30, 500, False, False
 
 def map1():
     screen.fill(Black)
@@ -85,7 +86,7 @@ def map3():
     pygame.draw.line(screen, DRed, [1140, 400], [1360, 400], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 
-    if key1 == 0:
+    if key1 == False:
         pygame.draw.rect(screen, Green, [1095, 160, 20, 20], 5)
         pygame.draw.line(screen, Orange, [1135, 390], [1135, 700], 8)
     else:
@@ -98,117 +99,104 @@ def map4():
 
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
-    pygame.draw.line(screen, Blue, [180, 520], [230, 520], 5)
-    pygame.draw.line(screen, Red, [300, 450], [370, 450], 5)
+    pygame.draw.line(screen, LBlack, [180, 520], [230, 520], 5)
+    pygame.draw.line(screen, LBlack, [300, 450], [370, 450], 5)
     pygame.draw.line(screen, LBlack, [50, 400], [120, 400], 5)
     pygame.draw.line(screen, LBlack, [120, 320], [150, 320], 5)
     pygame.draw.line(screen, LBlack, [200, 250], [270, 250], 5)
     pygame.draw.line(screen, LBlack, [60, 150], [100, 150], 5)
-
-    # lava BESIDE blue platform
-    pygame.draw.line(screen, Orange, [396, 193], [396, 700], 8)
-    pygame.draw.line(screen, Orange, [550, 193], [550, 500], 8)
 
     # lava FALLING ON blue platform
     pygame.draw.line(screen, Orange, [450, 0], [450, 196], 8)
 
     # lava ON blue platform
     pygame.draw.line(screen, Orange, [400, 196], [546, 196], 8)
-    pygame.draw.line(screen, Blue, [400, 202], [546, 202], 5)
+    pygame.draw.line(screen, DRed, [400, 202], [546, 202], 5)
 
-    # lava ON green platform
-    pygame.draw.line(screen, Orange, [500, 494], [600, 494], 8)
-    pygame.draw.line(screen, Green, [500, 500], [600, 500], 5)
-
-    # lava BESIDE green platform
-    pygame.draw.line(screen, Orange, [496, 491], [496, 700], 8)
-    pygame.draw.line(screen, Orange, [604, 491], [604, 700], 8)
-
-    # after key aquire
-    pygame.draw.line(screen, Blue, [400, 187], [400, 204], 5)
-    pygame.draw.line(screen, Blue, [546, 187], [546, 204], 5)
-
-    pygame.draw.line(screen, Blue, [700, 450], [800, 450], 5)
-    pygame.draw.line(screen, Green, [860, 400], [900, 400], 5)
-    pygame.draw.line(screen, Red, [1040, 600], [1120, 600], 5)
+    pygame.draw.line(screen, LBlack, [700, 450], [800, 450], 5)
+    pygame.draw.line(screen, LBlack, [860, 400], [900, 400], 5)
+    pygame.draw.line(screen, LBlack, [1040, 600], [1120, 600], 5)
     pygame.draw.line(screen, LBlack, [970, 300], [1020, 300], 5)
     pygame.draw.line(screen, LBlack, [790, 240], [870, 240], 5)
-    pygame.draw.line(screen, Blue, [650, 200], [720, 200], 5)
-    pygame.draw.line(screen, Green, [520, 130], [600, 130], 5)
-    pygame.draw.line(screen, Red, [1240, 600], [1360, 600], 5)
+    pygame.draw.line(screen, LBlack, [650, 200], [720, 200], 5)
+    pygame.draw.line(screen, LBlack, [520, 130], [600, 130], 5)
+    pygame.draw.line(screen, LBlack, [1240, 600], [1360, 600], 5)
 
     # lava ON gren platform
     pygame.draw.line(screen, Orange, [1200, 394], [1300, 394], 8)
-    pygame.draw.line(screen, Green, [1200, 400], [1300, 400], 5)
-    # green block
-    pygame.draw.line(screen, Green, [1300, 385], [1300, 402], 5)
-    # lava FALLING OFF gren platform
-    pygame.draw.line(screen, Orange, [1196, 391], [1196, 700], 8)
+    pygame.draw.line(screen, DRed, [1200, 400], [1300, 400], 5)
+
     # lava FALLING ON gren platform
     pygame.draw.line(screen, Orange, [1283, 0], [1283, 394], 8)
 
-    # after key aquire
-    pygame.draw.line(screen, Green, [1200, 385], [1200, 402], 5)
+    #green block
+    pygame.draw.line(screen, DRed, [1300, 385], [1300, 402], 5)
 
+    if key1 == False:
+        pygame.draw.line(screen, Orange, [396, 193], [396, 700], 8)
+        pygame.draw.line(screen, Orange, [550, 193], [550, 495], 8)
+        pygame.draw.line(screen, Orange, [500, 494], [600, 494], 8)
+        pygame.draw.line(screen, Orange, [496, 491], [496, 700], 8)
+        pygame.draw.line(screen, Orange, [604, 491], [604, 700], 8)
+        pygame.draw.line(screen, DRed, [500, 500], [600, 500], 5)
+        pygame.draw.rect(screen, Green, [70, 110, 20, 20], 5)
+    else:
+        pygame.draw.line(screen, DRed, [400, 187], [400, 204], 5)
+        pygame.draw.line(screen, DRed, [546, 187], [546, 204], 5)
+        pygame.draw.line(screen, LBlack, [500, 500], [600, 500], 5)
+
+    if key2 == False:
+        pygame.draw.line(screen, Orange, [1196, 391], [1196, 700], 8)
+        pygame.draw.rect(screen, Green, [550, 90, 20, 20], 5)
+    else:
+        pygame.draw.line(screen, DRed, [1200, 385], [1200, 402], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.display.flip()
 
-    pygame.draw.rect(screen, Green, [550, 90, 20, 20], 5)
-    pygame.draw.rect(screen, Green, [70, 110, 20, 20], 5)
-
-
-
-
+def map5():
+    screen.fill(Silver)
+    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
 def map1func():
     global yvalue, xvalue, gravity, canJump, mapCounter
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 166 and xvalue < 300 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 266 and xvalue < 400 and yvalue < 466 and yvalue > 462:
         yvalue = 465
-        gravity = 0
         cooldownJump()
     elif xvalue > 66 and xvalue < 200 and yvalue < 366 and yvalue > 362:
         yvalue = 365
-        gravity = 0
         cooldownJump()
     elif xvalue > 216 and xvalue < 320 and yvalue < 266 and yvalue > 262:
         yvalue = 265
-        gravity = 0
         cooldownJump()
     elif xvalue > 366 and xvalue < 500 and yvalue < 186 and yvalue > 182:
         yvalue = 185
-        gravity = 0
         cooldownJump()
     elif xvalue > 666 and xvalue < 800 and yvalue < 466 and yvalue > 462:
         yvalue = 465
-        gravity = 0
         cooldownJump()
     elif xvalue > 836 and xvalue < 920 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 946 and xvalue < 1010 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 1046 and xvalue < 1150 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 1046 and xvalue < 1150 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 1136 and xvalue < 1360 and yvalue < 506 and yvalue > 502:
         yvalue = 505
-        gravity = 0
         cooldownJump()
 
     if xvalue == 1325 and yvalue == 505:
@@ -219,47 +207,36 @@ def map2func():
     global yvalue, xvalue, gravity, canJump, mapCounter
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 216 and xvalue < 300 and yvalue < 586 and yvalue > 582:
         yvalue = 585
-        gravity = 0
         cooldownJump()
     elif xvalue > 386 and xvalue < 490 and yvalue < 526 and yvalue > 522:
         yvalue = 525
-        gravity = 0
         cooldownJump()
     elif xvalue > 466 and xvalue < 600 and yvalue < 446 and yvalue > 442:
         yvalue = 445
-        gravity = 0
         cooldownJump()
     elif xvalue > 356 and xvalue < 430 and yvalue < 346 and yvalue > 342:
         yvalue = 345
-        gravity = 0
         cooldownJump()
     elif xvalue > 156 and xvalue < 270 and yvalue < 266 and yvalue > 262:
         yvalue = 265
-        gravity = 0
         cooldownJump()
     elif xvalue > 346 and xvalue < 430 and yvalue < 186 and yvalue > 182:
         yvalue = 185
-        gravity = 0
         cooldownJump()
     elif xvalue > 486 and xvalue < 640 and yvalue < 116 and yvalue > 112:
         yvalue = 115
-        gravity = 0
         cooldownJump()
     elif xvalue > 866 and xvalue < 1000 and yvalue < 608 and yvalue > 602:
         yvalue = 605
-        gravity = 0
         cooldownJump()
     elif xvalue > 1066 and xvalue < 1170 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 1216 and xvalue < 1360 and yvalue < 486 and yvalue > 482:
         yvalue = 485
-        gravity = 0
         cooldownJump()
 
     if xvalue == 1325 and yvalue == 485:
@@ -270,64 +247,51 @@ def map3func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 151 and xvalue < 220 and yvalue < 466 and yvalue > 462:
         yvalue = 465
-        gravity = 0
         cooldownJump()
     elif xvalue > -24 and xvalue < 70 and yvalue < 386 and yvalue > 382:
         yvalue = 385
-        gravity = 0
         cooldownJump()
     elif xvalue > 86 and xvalue < 190 and yvalue < 296 and yvalue > 292:
         yvalue = 295
-        gravity = 0
         cooldownJump()
     elif xvalue > 6 and xvalue < 90 and yvalue < 186 and yvalue > 182:
         yvalue = 185
-        gravity = 0
         cooldownJump()
     elif xvalue > 146 and xvalue < 250 and yvalue < 66 and yvalue > 62:
         yvalue = 65
-        gravity = 0
         cooldownJump()
     elif xvalue > 316 and xvalue < 420 and yvalue < 66 and yvalue > 62:
         yvalue = 65
-        gravity = 0
         cooldownJump()
     elif xvalue > 566 and xvalue < 680 and yvalue < 406 and yvalue > 402:
         yvalue = 405
-        gravity = 0
         cooldownJump()
     elif xvalue > 726 and xvalue < 800 and yvalue < 336 and yvalue > 332:
         yvalue = 335
-        gravity = 0
         cooldownJump()
     elif xvalue > 816 and xvalue < 930 and yvalue < 196 and yvalue > 192:
         yvalue = 195
-        gravity = 0
         cooldownJump()
     elif xvalue > 1006 and xvalue < 1170 and yvalue < 166 and yvalue > 162:
         yvalue = 165
-        gravity = 0
         cooldownJump()
     elif xvalue > 966 and xvalue < 1070 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 1166 and xvalue < 1360 and yvalue < 546 and yvalue > 542:
         yvalue = 545
-        gravity = 0
         cooldownJump()
 
     elif xvalue > 1106 and xvalue < 1360 and yvalue < 366 and yvalue > 362:
         reset()
-    if key1 == 0:
+    if key1 == False:
         if xvalue > 1101 and xvalue < 1143 and yvalue < 700 and yvalue > 356:
             reset()
     if xvalue > 1060 and xvalue < 1115 and yvalue < 194 and yvalue > 126:
-        key1 = 1
+        key1 = True
 
     if xvalue == 1325 and yvalue == 545:
         reset()
@@ -338,40 +302,86 @@ def map4func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
-        gravity = 0
         cooldownJump()
     elif xvalue > 146 and xvalue < 230 and yvalue < 486 and yvalue > 482:
         yvalue = 485
-        gravity = 0
         cooldownJump()
     elif xvalue > 266 and xvalue < 370 and yvalue < 416 and yvalue > 412:
         yvalue = 415
-        gravity = 0
         cooldownJump()
     elif xvalue > 16 and xvalue < 120 and yvalue < 366 and yvalue > 362:
         yvalue = 365
-        gravity = 0
         cooldownJump()
     elif xvalue > 86 and xvalue < 150 and yvalue < 286 and yvalue > 282:
         yvalue = 285
-        gravity = 0
         cooldownJump()
     elif xvalue > 166 and xvalue < 270 and yvalue < 216 and yvalue > 212:
         yvalue = 215
-        gravity = 0
         cooldownJump()
     elif xvalue > 26 and xvalue < 100 and yvalue < 116 and yvalue > 112:
         yvalue = 115
-        gravity = 0
         cooldownJump()
+    elif xvalue > 466 and xvalue < 600 and yvalue < 466 and yvalue > 462:
+        yvalue = 465
+        cooldownJump()
+    elif xvalue > 666 and xvalue < 800 and yvalue < 416 and yvalue > 412:
+        yvalue = 415
+        cooldownJump()
+    elif xvalue > 826 and xvalue < 900 and yvalue < 366 and yvalue > 362:
+        yvalue = 365
+        cooldownJump()
+    elif xvalue > 1006 and xvalue < 1120 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        cooldownJump()
+    elif xvalue > 936 and xvalue < 1020 and yvalue < 266 and yvalue > 262:
+        yvalue = 265
+        cooldownJump()
+    elif xvalue > 756 and xvalue < 870 and yvalue < 206 and yvalue > 202:
+        yvalue = 205
+        cooldownJump()
+    elif xvalue > 616 and xvalue < 720 and yvalue < 166 and yvalue > 162:
+        yvalue = 162
+        cooldownJump()
+    elif xvalue > 486 and xvalue < 600 and yvalue < 96 and yvalue > 92:
+        yvalue = 95
+        cooldownJump()
+    elif xvalue > 1206 and xvalue < 1360 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        cooldownJump()
+    elif xvalue > 416 and xvalue < 458 and yvalue < 196 and yvalue > -34:
+        reset()
+    elif xvalue > 366 and xvalue < 546 and yvalue < 162 and yvalue > 158:
+        reset()
+    elif xvalue > 1166 and xvalue < 1300 and yvalue < 360 and yvalue > 356:
+        reset()
+    elif xvalue > 1249 and xvalue < 1291 and yvalue < 360 and yvalue > 0:
+        reset()
 
-    if key1 == 0:
+    if key1 == False:
         if xvalue > 362 and xvalue < 404 and yvalue < 700 and yvalue > 159:
             reset()
         elif xvalue > 516 and xvalue < 558 and yvalue < 500 and yvalue > 159:
             reset()
-        elif xvalue > 416 and xvalue < 458 and yvalue < 196 and yvalue > -34:
+
+    if key2 == False:
+        if xvalue > 1249 and xvalue < 1291 and yvalue < 360 and yvalue > 0:
             reset()
+
+    if xvalue > 36 and xvalue < 90 and yvalue < 144 and yvalue > 76:
+        key1 = True
+    elif xvalue > 516 and xvalue < 570 and yvalue < 124 and yvalue > 56:
+        key2 = True
+
+    if xvalue == 1325 and yvalue == 565:
+        reset()
+        mapCounter += 1
+
+def map5func():
+    global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        cooldownJump()
+
 #Main Movement Loop
 while not done:
     for event in pygame.event.get():
@@ -405,9 +415,13 @@ while not done:
             elif event.key == pygame.K_w:
                 mapCounter += 1
             elif event.key == pygame.K_e:
-                key1 -= 1
+                key1 = False
             elif event.key == pygame.K_r:
-                key1 += 1
+                key1 = True
+            elif event.key == pygame.K_t:
+                key2 = False
+            elif event.key == pygame.K_y:
+                key2 = True
 #Gravity Code
     gravity = gravity + 0.02
     yvalue = yvalue + gravity
@@ -423,6 +437,8 @@ while not done:
         map3func()
     elif mapCounter == 3:
         map4func()
+    elif mapCounter == 4:
+        map5func()
 
 #Movement Code
     xvalue += left_move + right_move
@@ -450,8 +466,8 @@ while not done:
         map3()
     elif mapCounter == 3:
         map4()
-
+    elif mapCounter == 4:
+        map5()
 
     # temporary
-
 
