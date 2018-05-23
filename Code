@@ -17,6 +17,8 @@ j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
 done=False
 mapCounter = 0
 key1, key2 = False,False
+font1, font2 = pygame.font.SysFont('', 50, True, False), pygame.font.SysFont('', 40, False, False)
+startScreen = True
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
 clock=pygame.time.Clock()
@@ -47,7 +49,7 @@ def portaldraw():
     else:
         pcolor = pcolor - 0.3
         Portal = (pcolor, 0, pcolor)
-
+pygame.font.SysFont('', 40, False, False)
 def lavadraw():
     global lcolor, lc, Orange
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
@@ -64,6 +66,34 @@ def lavadraw():
     else:
         lcolor = lcolor - 0.1
         Orange = (255, lcolor, 0)
+
+def map0():
+    screen.fill(LGray)
+    text1 = font1.render("Welcome!", True, LBlack)
+    text2 = font2.render("The objective of the game is to reach the portal on the right side of the map.", True, LBlack)
+    text3 = font2.render("This is you. You control him by using the arrow keys.", True, LBlack)
+    text4 = font2.render("This is a portal. Get to the one on the right side of the screen to progress.", True, LBlack)
+    text5 = font2.render("This is lava. Touching anything of this colour will send you back to the beginning.", True,
+                         LBlack)
+    text6 = font2.render("This is a key. Some maps will require you to collect keys in order to progress.", True,
+                         LBlack)
+    text7 = font2.render("Jump across platforms to reach the portal on the right.", True, LBlack)
+    text8 = font2.render("Good luck!", True, LBlack)
+    text9 = font2.render("Press spacebar to begin.", True, LBlack)
+    screen.blit(text1, [0, 0])
+    screen.blit(text2, [0, 50])
+    screen.blit(text3, [60, 105])
+    screen.blit(text4, [60, 160])
+    screen.blit(text5, [70, 225])
+    screen.blit(text6, [50, 285])
+    screen.blit(text7, [0, 335])
+    screen.blit(text8, [0, 385])
+    screen.blit(text9, [0, 650])
+    pygame.draw.ellipse(screen, Red, [10, 100, 35, 35])
+    pygame.draw.line(screen, Portal, [5, 175], [50, 175], 50)
+    pygame.draw.line(screen, Orange, [10, 240], [60, 240], 20)
+    pygame.draw.rect(screen, Green, [20, 290, 20, 20], 5)
+    pygame.display.flip()
 
 def map1():
     screen.fill(Black)
@@ -441,8 +471,11 @@ while not done:
                         jump = 6
                         j = 0.1
                         jumpCooldown = 2
-            elif event.key == pygame.K_SPACE:
+            elif event.key == pygame.K_a:
                 gravity = 0
+            elif startScreen == True:
+                if event.key == pygame.K_SPACE:
+                    mapCounter = 1
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_move = 0
@@ -473,16 +506,17 @@ while not done:
         reset()
     canJump = False
     if mapCounter == 0:
-        map1func()
+        gravity = 0
     elif mapCounter == 1:
-        map2func()
+        map1func()
     elif mapCounter == 2:
-        map3func()
+        map2func()
     elif mapCounter == 3:
-        map4func()
+        map3func()
     elif mapCounter == 4:
+        map4func()
+    elif mapCounter == 5:
         map5func()
-
 #Movement Code
     xvalue += left_move + right_move
     yvalue = yvalue - jump
@@ -502,15 +536,16 @@ while not done:
         j = 0
 #Redrawing Code
     if mapCounter == 0:
-        map1()
+        map0()
     elif mapCounter == 1:
-        map2()
+        map1()
     elif mapCounter == 2:
-        map3()
+        map2()
     elif mapCounter == 3:
-        map4()
+        map3()
     elif mapCounter == 4:
+        map4()
+    elif mapCounter == 5:
         map5()
-
     # temporary
 
