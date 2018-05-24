@@ -37,7 +37,6 @@ def reset():
 
 def portaldraw():
     global pcolor, pc, Portal
-    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     if pcolor >= 255:
         pc = False
     elif pcolor <= 180:
@@ -52,7 +51,6 @@ def portaldraw():
 pygame.font.SysFont('', 40, False, False)
 def lavadraw():
     global lcolor, lc, Orange
-    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     if lcolor >= 150:
         lcolor = 150
         lc = False
@@ -69,6 +67,8 @@ def lavadraw():
 
 def map0():
     screen.fill(LGray)
+    lavadraw()
+    portaldraw()
     text1 = font1.render("Welcome!", True, LBlack)
     text2 = font2.render("The objective of the game is to reach the portal on the right side of the map.", True, LBlack)
     text3 = font2.render("This is you. You control him by using the arrow keys.", True, LBlack)
@@ -97,9 +97,12 @@ def map0():
 
 def map1():
     screen.fill(Black)
+    pygame.display.set_caption("Jumper: Level 1")
     portaldraw()
+    lavadraw()
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 512], [1360, 512], 50)
-    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [200, 600], [300, 600], 5)
     pygame.draw.line(screen, LBlack, [300, 500], [400, 500], 5)
@@ -111,14 +114,17 @@ def map1():
     pygame.draw.line(screen, LBlack, [970, 600], [1010, 600], 5)
     pygame.draw.line(screen, LBlack, [1080, 600], [1150, 600], 5)
     pygame.draw.line(screen, LBlack, [1170, 540], [1360, 540], 5)
-    lavadraw()
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
 def map2():
     screen.fill(DGray)
     portaldraw()
+    lavadraw()
+    pygame.display.set_caption("Jumper: Level 2")
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 492], [1360, 492], 50)
-    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [250, 620], [300, 620], 5)
     pygame.draw.line(screen, LBlack, [420, 560], [490, 560], 5)
@@ -130,14 +136,17 @@ def map2():
     pygame.draw.line(screen, LBlack, [900, 640], [1000, 640], 5)
     pygame.draw.line(screen, LBlack, [1100, 600], [1170, 600], 5)
     pygame.draw.line(screen, LBlack, [1250, 520], [1360, 520], 5)
-    lavadraw()
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
 def map3():
     screen.fill(Gray)
     portaldraw()
+    lavadraw()
+    pygame.display.set_caption("Jumper: Level 3")
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 552], [1360, 552], 50)
-    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [185, 500], [220, 500], 5)
     pygame.draw.line(screen, LBlack, [10, 420], [70, 420], 5)
@@ -155,7 +164,7 @@ def map3():
     # Lava pool tile
     pygame.draw.line(screen,Orange, [1140,393], [1360, 393],8)
     pygame.draw.line(screen, DRed, [1140, 400], [1360, 400], 5)
-    lavadraw()
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 
     if key1 == False:
         pygame.draw.rect(screen, Green, [1095, 160, 20, 20], 5)
@@ -167,8 +176,11 @@ def map3():
 def map4():
     screen.fill(LGray)
     portaldraw()
+    lavadraw()
+    pygame.display.set_caption("Jumper: Level 4")
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 572], [1360, 572], 50)
-    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [180, 520], [230, 520], 5)
@@ -222,15 +234,18 @@ def map4():
         pygame.draw.rect(screen, Green, [550, 90, 20, 20], 5)
     else:
         pygame.draw.line(screen, DRed, [1200, 385], [1200, 402], 5)
-    lavadraw()
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
 def map5():
     screen.fill(Silver)
     portaldraw()
-    pygame.draw.ellipse(screen, Red, [0 + xvalue, yvalue, 35, 35])
-    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     lavadraw()
+    pygame.display.set_caption("Jumper: Level 5")
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.display.flip()
 
 def map1func():
@@ -507,6 +522,7 @@ while not done:
     canJump = False
     if mapCounter == 0:
         gravity = 0
+        reset()
     elif mapCounter == 1:
         map1func()
     elif mapCounter == 2:
