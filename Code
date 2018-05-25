@@ -239,13 +239,75 @@ def map4():
 
 def map5():
     screen.fill(Silver)
-    portaldraw()
-    lavadraw()
+    portaldraw(),lavadraw()
     pygame.display.set_caption("Jumper: Level 5")
+    lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
+    pygame.draw.line(screen, Portal, [1315, 72], [1360, 72], 50)
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
-    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
+    pygame.draw.line(screen, LBlack, [180, 520], [250, 520], 5)
+    pygame.draw.line(screen, LBlack, [360, 590], [400, 590], 5)
+    pygame.draw.line(screen, Red, [490, 610], [540, 610], 5)
+    pygame.draw.line(screen, LBlack, [540, 520], [590, 520], 5)
+    pygame.draw.line(screen, Red, [590, 420], [640, 420], 5)
+    pygame.draw.line(screen, LBlack, [280, 420], [340, 420], 5)
+    pygame.draw.line(screen, Red, [180, 330], [250, 330], 5)
+    # lavafall top
+    pygame.draw.line(screen, Orange, [200, 0], [200, 150], 8)
+    # lava ontop of platform
+    pygame.draw.line(screen, Orange, [150, 144], [400, 144], 8)
+    # platform
+    pygame.draw.line(screen, LBlack, [150, 150], [400, 150], 5)
+    # platform k-FALSE
+    pygame.draw.line(screen, LBlack, [370, 300], [680, 300], 5)
+    pygame.draw.line(screen, LBlack, [450, 200], [520, 200], 5)
+    pygame.draw.line(screen, Blue, [400, 100], [450, 100], 5)
+    pygame.draw.line(screen, Green, [280, 100], [340, 100], 5)
+    pygame.draw.line(screen, Red, [620, 170], [700, 170], 5)
+    pygame.draw.line(screen, Blue, [700, 630], [740, 630], 5)
+    pygame.draw.line(screen, Green, [830, 620], [900, 620], 5)
+    pygame.draw.line(screen, Green, [970, 640], [1080, 640], 5)
+    pygame.draw.line(screen, Green, [1140, 640], [1200, 640], 5)
+    # lavafall top
+    pygame.draw.line(screen, Orange, [820, 0], [820, 500], 8)
+    # lava ontop of platform
+    pygame.draw.line(screen, Orange, [800, 494], [1100, 494], 8)
+    # platform
+    pygame.draw.line(screen, LBlack, [800, 500], [1100, 500], 5)
+    # lavablock left
+    pygame.draw.line(screen, LBlack, [800, 485], [800, 502], 5)
+    pygame.draw.line(screen, Green, [1260, 570], [1300, 570], 5)
+    pygame.draw.line(screen, Green, [1140, 500], [1200, 500], 5)
+    pygame.draw.line(screen, Green, [970, 410], [1050, 410], 5)
+    pygame.draw.line(screen, Red, [900, 310], [980, 310], 5)
+    pygame.draw.line(screen, Blue, [1050, 210], [1150, 210], 5)
+    pygame.draw.line(screen, Red, [1200, 100], [1360, 100], 5)
+    if key1 == False:
+        # lavablock left
+        pygame.draw.line(screen, LBlack, [150, 135], [150, 152], 5)
+        # lavafall right
+        pygame.draw.line(screen, Orange, [404, 141], [404, 294], 8)
+        # lava ontop of platform k-TRUE
+        pygame.draw.line(screen, Orange, [373, 293], [680, 293], 8)
+        # lavafall right k-TRUE
+        pygame.draw.line(screen, Orange, [684, 290], [684, 700], 8)
+        # lavablock right k-TRUE
+        pygame.draw.line(screen, LBlack, [1100, 485], [1100, 502], 5)
+        # lavablock left
+        pygame.draw.line(screen, LBlack, [370, 285], [370, 302], 5)
+        # keydraw
+        pygame.draw.rect(screen, Green, [605, 380, 20, 20], 5)
+    else:
+        # lavablock right k-FALSE
+        pygame.draw.line(screen, LBlack, [400, 135], [400, 152], 5)
+        # lavafall left k-FALSE
+        pygame.draw.line(screen, Orange, [146, 141], [146, 700], 8)
+        # lavafall right k-FALSE
+        pygame.draw.line(screen, Orange, [1104, 491], [1104, 700], 8)
+        # keydraw
+        pygame.draw.rect(screen, Green, [300, 60, 20, 20], 5)
     pygame.display.flip()
 
 def map1func():
