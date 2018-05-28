@@ -48,7 +48,6 @@ def portaldraw():
     else:
         pcolor = pcolor - 0.3
         Portal = (pcolor, 0, pcolor)
-pygame.font.SysFont('', 40, False, False)
 def lavadraw():
     global lcolor, lc, Orange
     if lcolor >= 150:
@@ -97,7 +96,6 @@ def map0():
 
 def map1():
     screen.fill(Black)
-    pygame.display.set_caption("Jumper: Level 1")
     portaldraw()
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -121,7 +119,6 @@ def map2():
     screen.fill(DGray)
     portaldraw()
     lavadraw()
-    pygame.display.set_caption("Jumper: Level 2")
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 492], [1360, 492], 50)
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
@@ -143,7 +140,6 @@ def map3():
     screen.fill(Gray)
     portaldraw()
     lavadraw()
-    pygame.display.set_caption("Jumper: Level 3")
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 552], [1360, 552], 50)
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
@@ -177,7 +173,6 @@ def map4():
     screen.fill(LGray)
     portaldraw()
     lavadraw()
-    pygame.display.set_caption("Jumper: Level 4")
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 572], [1360, 572], 50)
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
@@ -240,16 +235,15 @@ def map4():
 def map5():
     screen.fill(Silver)
     portaldraw(),lavadraw()
-    pygame.display.set_caption("Jumper: Level 5")
     lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 72], [1360, 72], 50)
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
-    pygame.draw.line(screen, LBlack, [180, 520], [250, 520], 5)
-    pygame.draw.line(screen, LBlack, [360, 590], [400, 590], 5)
-    pygame.draw.line(screen, Red, [490, 610], [540, 610], 5)
+    pygame.draw.line(screen, DRed, [180, 520], [250, 520], 5)
+    pygame.draw.line(screen, Blue, [360, 590], [400, 590], 5)
+    pygame.draw.line(screen, DRed, [490, 610], [540, 610], 5)
     pygame.draw.line(screen, LBlack, [540, 520], [590, 520], 5)
     pygame.draw.line(screen, Red, [590, 420], [640, 420], 5)
     pygame.draw.line(screen, LBlack, [280, 420], [340, 420], 5)
@@ -531,6 +525,43 @@ def map5func():
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
         cooldownJump()
+    elif xvalue > 146 and xvalue < 250 and yvalue < 486 and yvalue > 482:
+        yvalue = 485
+        cooldownJump()
+    elif xvalue > 326 and xvalue < 400 and yvalue < 556 and yvalue > 552:
+        yvalue = 555
+        cooldownJump()
+    elif xvalue > 456 and xvalue < 540 and yvalue < 576 and yvalue > 572:
+        yvalue = 575
+        cooldownJump()
+    elif xvalue > 506 and xvalue < 590 and yvalue < 486 and yvalue > 482:
+        yvalue = 485
+        cooldownJump()
+    elif xvalue > 556 and xvalue < 640 and yvalue < 386 and yvalue > 382:
+        yvalue = 385
+        cooldownJump()
+    elif xvalue > 246 and xvalue < 340 and yvalue < 386 and yvalue > 382:
+        yvalue = 385
+        cooldownJump()
+    elif xvalue > 146 and xvalue < 250 and yvalue < 296 and yvalue > 292:
+        yvalue = 295
+        cooldownJump()
+    elif xvalue > 166 and xvalue < 220 and yvalue < 150 and yvalue > -34:
+        reset()
+    elif xvalue > 116 and xvalue < 400 and yvalue < 110 and yvalue > 106:
+        reset()
+
+    if key1 == False:
+        if xvalue > 370 and xvalue < 412 and yvalue < 294 and yvalue > 107:
+            reset()
+        elif xvalue > 339 and xvalue < 680 and yvalue < 259 and yvalue > 255:
+            reset()
+        elif xvalue > 650 and xvalue < 692 and yvalue < 700 and yvalue > 256:
+            reset()
+        elif xvalue > 786 and xvalue < 840 and yvalue < 500 and yvalue > -34:
+            reset()
+        elif xvalue > 766 and xvalue < 1100 and yvalue < 460 and yvalue > 456:
+            reset()
 
 #Main Movement Loop
 while not done:
@@ -553,6 +584,7 @@ while not done:
             elif startScreen == True:
                 if event.key == pygame.K_SPACE:
                     mapCounter = 1
+                    startScreen = False
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_move = 0
