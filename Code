@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 Black, LBlack, DGray, Gray, LGray, Silver, White = (70,70,70), (105,105,105), (140,140,140), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
-DRed, Green = (128,0,0), (0, 255, 0)
+DRed, Green, Gold = (128,0,0), (0, 255, 0),(255,215,0)
 
 #temporary
 Red, Blue = (255, 0, 0), (0, 0, 255)
@@ -16,6 +16,7 @@ xvalue,yvalue= 30,500
 j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
 done=False
 mapCounter = 0
+lives = 5
 key1, key2 = False,False
 font1, font2 = pygame.font.SysFont('', 50, True, False), pygame.font.SysFont('', 40, False, False)
 startScreen = True
@@ -32,6 +33,11 @@ def cooldownJump():
         canJump = True
 
 def reset():
+    global lives
+    nextlevel()
+    lives -= 1
+
+def nextlevel():
     global xvalue,yvalue,key1,key2
     xvalue, yvalue, key1, key2 = 30, 500, False, False
 
@@ -64,6 +70,29 @@ def lavadraw():
         lcolor = lcolor - 0.1
         Orange = (255, lcolor, 0)
 
+def livesdraw():
+    global lives
+    if lives == 5:
+        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+        pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
+        pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
+        pygame.draw.line(screen, Gold, [70, 10], [70, 50], 8)
+        pygame.draw.line(screen, Gold, [90, 10], [90, 50], 8)
+    elif lives == 4:
+        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+        pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
+        pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
+        pygame.draw.line(screen, Gold, [70, 10], [70, 50], 8)
+    elif lives == 3:
+        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+        pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
+        pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
+    elif lives == 2:
+        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+        pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
+    elif lives == 1:
+        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+
 def map0():
     screen.fill(LGray)
     lavadraw()
@@ -92,7 +121,7 @@ def map0():
     pygame.draw.line(screen, Portal, [5, 175], [50, 175], 50)
     pygame.draw.line(screen, Orange, [10, 240], [60, 240], 20)
     pygame.draw.rect(screen, Green, [20, 290, 20, 20], 5)
-    pygame.display.flip()
+
 
 def map1():
     screen.fill(Black)
@@ -113,7 +142,6 @@ def map1():
     pygame.draw.line(screen, LBlack, [1080, 600], [1150, 600], 5)
     pygame.draw.line(screen, LBlack, [1170, 540], [1360, 540], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-    pygame.display.flip()
 
 def map2():
     screen.fill(DGray)
@@ -134,7 +162,6 @@ def map2():
     pygame.draw.line(screen, LBlack, [1100, 600], [1170, 600], 5)
     pygame.draw.line(screen, LBlack, [1250, 520], [1360, 520], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-    pygame.display.flip()
 
 def map3():
     screen.fill(Gray)
@@ -167,7 +194,6 @@ def map3():
         pygame.draw.line(screen, Orange, [1135, 390], [1135, 700], 8)
     else:
         pygame.draw.line(screen, DRed, [1140, 385], [1140, 402], 5)
-    pygame.display.flip()
 
 def map4():
     screen.fill(LGray)
@@ -230,7 +256,6 @@ def map4():
     else:
         pygame.draw.line(screen, DRed, [1200, 385], [1200, 402], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-    pygame.display.flip()
 
 def map5():
     screen.fill(Silver)
@@ -241,13 +266,13 @@ def map5():
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
-    pygame.draw.line(screen, DRed, [180, 520], [250, 520], 5)
-    pygame.draw.line(screen, Blue, [360, 590], [400, 590], 5)
-    pygame.draw.line(screen, DRed, [490, 610], [540, 610], 5)
+    pygame.draw.line(screen, LBlack, [180, 520], [250, 520], 5)
+    pygame.draw.line(screen, LBlack, [360, 590], [400, 590], 5)
+    pygame.draw.line(screen, LBlack, [490, 610], [540, 610], 5)
     pygame.draw.line(screen, LBlack, [540, 520], [590, 520], 5)
-    pygame.draw.line(screen, Red, [590, 420], [640, 420], 5)
+    pygame.draw.line(screen, LBlack, [590, 420], [640, 420], 5)
     pygame.draw.line(screen, LBlack, [280, 420], [340, 420], 5)
-    pygame.draw.line(screen, Red, [180, 330], [250, 330], 5)
+    pygame.draw.line(screen, LBlack, [180, 330], [250, 330], 5)
     # lavafall top
     pygame.draw.line(screen, Orange, [200, 0], [200, 150], 8)
     # lava ontop of platform
@@ -257,13 +282,13 @@ def map5():
     # platform k-FALSE
     pygame.draw.line(screen, LBlack, [370, 300], [680, 300], 5)
     pygame.draw.line(screen, LBlack, [450, 200], [520, 200], 5)
-    pygame.draw.line(screen, Blue, [400, 100], [450, 100], 5)
-    pygame.draw.line(screen, Green, [280, 100], [340, 100], 5)
-    pygame.draw.line(screen, Red, [620, 170], [700, 170], 5)
-    pygame.draw.line(screen, Blue, [700, 630], [740, 630], 5)
-    pygame.draw.line(screen, Green, [830, 620], [900, 620], 5)
-    pygame.draw.line(screen, Green, [970, 640], [1080, 640], 5)
-    pygame.draw.line(screen, Green, [1140, 640], [1200, 640], 5)
+    pygame.draw.line(screen, LBlack, [400, 100], [450, 100], 5)
+    pygame.draw.line(screen, LBlack, [280, 100], [340, 100], 5)
+    pygame.draw.line(screen, LBlack, [620, 170], [700, 170], 5)
+    pygame.draw.line(screen, LBlack, [700, 630], [740, 630], 5)
+    pygame.draw.line(screen, LBlack, [830, 620], [900, 620], 5)
+    pygame.draw.line(screen, LBlack, [970, 640], [1080, 640], 5)
+    pygame.draw.line(screen, LBlack, [1140, 640], [1200, 640], 5)
     # lavafall top
     pygame.draw.line(screen, Orange, [820, 0], [820, 500], 8)
     # lava ontop of platform
@@ -272,12 +297,12 @@ def map5():
     pygame.draw.line(screen, LBlack, [800, 500], [1100, 500], 5)
     # lavablock left
     pygame.draw.line(screen, LBlack, [800, 485], [800, 502], 5)
-    pygame.draw.line(screen, Green, [1260, 570], [1300, 570], 5)
-    pygame.draw.line(screen, Green, [1140, 500], [1200, 500], 5)
-    pygame.draw.line(screen, Green, [970, 410], [1050, 410], 5)
-    pygame.draw.line(screen, Red, [900, 310], [980, 310], 5)
-    pygame.draw.line(screen, Blue, [1050, 210], [1150, 210], 5)
-    pygame.draw.line(screen, Red, [1200, 100], [1360, 100], 5)
+    pygame.draw.line(screen, LBlack, [1260, 570], [1300, 570], 5)
+    pygame.draw.line(screen, LBlack, [1140, 500], [1200, 500], 5)
+    pygame.draw.line(screen, LBlack, [970, 410], [1050, 410], 5)
+    pygame.draw.line(screen, LBlack, [900, 310], [980, 310], 5)
+    pygame.draw.line(screen, LBlack, [1050, 210], [1150, 210], 5)
+    pygame.draw.line(screen, LBlack, [1200, 100], [1360, 100], 5)
     if key1 == False:
         # lavablock left
         pygame.draw.line(screen, LBlack, [150, 135], [150, 152], 5)
@@ -302,7 +327,15 @@ def map5():
         pygame.draw.line(screen, Orange, [1104, 491], [1104, 700], 8)
         # keydraw
         pygame.draw.rect(screen, Green, [300, 60, 20, 20], 5)
-    pygame.display.flip()
+
+def map6():
+    screen.fill(White)
+    portaldraw(), lavadraw()
+    lavadraw(), portaldraw()
+    pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
+    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
+    pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
 
 def map1func():
     global yvalue, xvalue, gravity, canJump, mapCounter
@@ -344,7 +377,7 @@ def map1func():
         cooldownJump()
 
     if xvalue == 1325 and yvalue == 505:
-        reset()
+        nextlevel()
         mapCounter += 1
 
 def map2func():
@@ -384,7 +417,7 @@ def map2func():
         cooldownJump()
 
     if xvalue == 1325 and yvalue == 485:
-        reset()
+        nextlevel()
         mapCounter += 1
 
 def map3func():
@@ -438,7 +471,7 @@ def map3func():
         key1 = True
 
     if xvalue == 1325 and yvalue == 545:
-        reset()
+        nextlevel()
         mapCounter += 1
 
 
@@ -517,7 +550,7 @@ def map4func():
         key2 = True
 
     if xvalue == 1325 and yvalue == 565:
-        reset()
+        nextlevel()
         mapCounter += 1
 
 def map5func():
@@ -546,9 +579,55 @@ def map5func():
     elif xvalue > 146 and xvalue < 250 and yvalue < 296 and yvalue > 292:
         yvalue = 295
         cooldownJump()
-    elif xvalue > 166 and xvalue < 220 and yvalue < 150 and yvalue > -34:
+    elif xvalue > 416 and xvalue < 520 and yvalue < 166 and yvalue > 162:
+        yvalue = 165
+        cooldownJump()
+    elif xvalue > 366 and xvalue < 450 and yvalue < 66 and yvalue > 62:
+        yvalue = 65
+        cooldownJump()
+    elif xvalue > 246 and xvalue < 340 and yvalue < 66 and yvalue > 62:
+        yvalue = 65
+        cooldownJump()
+    elif xvalue > 586 and xvalue < 700 and yvalue < 136 and yvalue > 132:
+        yvalue = 135
+        cooldownJump()
+    elif xvalue > 666 and xvalue < 740 and yvalue < 596 and yvalue > 590:
+        yvalue = 595
+        cooldownJump()
+    elif xvalue > 796 and xvalue < 900 and yvalue < 586 and yvalue > 582:
+        yvalue = 585
+        cooldownJump()
+    elif xvalue > 936 and xvalue < 1080 and yvalue < 606 and yvalue > 602:
+        yvalue = 605
+        cooldownJump()
+    elif xvalue > 1106 and xvalue < 1200 and yvalue < 606 and yvalue > 602:
+        yvalue = 605
+        cooldownJump()
+    elif xvalue > 1226 and xvalue < 1300 and yvalue < 536 and yvalue > 532:
+        yvalue = 535
+        cooldownJump()
+    elif xvalue > 1106 and xvalue < 1200 and yvalue < 466 and yvalue > 462:
+        yvalue = 465
+        cooldownJump()
+    elif xvalue > 936 and xvalue < 1050 and yvalue < 376 and yvalue > 372:
+        yvalue = 375
+        cooldownJump()
+    elif xvalue > 866 and xvalue < 980 and yvalue < 276 and yvalue > 272:
+        yvalue = 275
+        cooldownJump()
+    elif xvalue > 1016 and xvalue < 1150 and yvalue < 176 and yvalue > 172:
+        yvalue = 175
+        cooldownJump()
+    elif xvalue > 1166 and xvalue < 1360 and yvalue < 66 and yvalue > 62:
+        yvalue = 65
+        cooldownJump()
+    elif xvalue > 166 and xvalue < 208 and yvalue < 150 and yvalue > -34:
         reset()
-    elif xvalue > 116 and xvalue < 400 and yvalue < 110 and yvalue > 106:
+    elif xvalue > 116 and xvalue < 400 and yvalue < 150 and yvalue > 106:
+        reset()
+    elif xvalue > 786 and xvalue < 828 and yvalue < 500 and yvalue > -34:
+        reset()
+    elif xvalue > 766 and xvalue < 1100 and yvalue < 500 and yvalue > 456:
         reset()
 
     if key1 == False:
@@ -558,10 +637,29 @@ def map5func():
             reset()
         elif xvalue > 650 and xvalue < 692 and yvalue < 700 and yvalue > 256:
             reset()
-        elif xvalue > 786 and xvalue < 840 and yvalue < 500 and yvalue > -34:
+    else:
+        if xvalue > 112 and xvalue < 154 and yvalue < 700 and yvalue > 107:
             reset()
-        elif xvalue > 766 and xvalue < 1100 and yvalue < 460 and yvalue > 456:
+        elif xvalue > 1070 and xvalue < 1112 and yvalue < 700 and yvalue > 457:
             reset()
+        elif xvalue > 336 and xvalue < 680 and yvalue < 266 and yvalue > 262:
+            yvalue = 265
+            cooldownJump()
+
+    if xvalue > 571 and xvalue < 625 and yvalue < 414 and yvalue > 346:
+        key1 = True
+    elif xvalue > 266 and xvalue < 320 and yvalue < 94 and yvalue > 26:
+        key1 = False
+
+    if xvalue == 1325 and yvalue == 65:
+        nextlevel()
+        mapCounter += 1
+
+def map6func():
+    global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
+    if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
+        yvalue = 565
+        cooldownJump()
 
 #Main Movement Loop
 while not done:
@@ -616,7 +714,7 @@ while not done:
     canJump = False
     if mapCounter == 0:
         gravity = 0
-        reset()
+        nextlevel()
     elif mapCounter == 1:
         map1func()
     elif mapCounter == 2:
@@ -627,6 +725,9 @@ while not done:
         map4func()
     elif mapCounter == 5:
         map5func()
+    elif mapCounter == 6:
+        map6func()
+
 #Movement Code
     xvalue += left_move + right_move
     yvalue = yvalue - jump
@@ -648,14 +749,17 @@ while not done:
     if mapCounter == 0:
         map0()
     elif mapCounter == 1:
-        map1()
+        map1(),livesdraw()
     elif mapCounter == 2:
-        map2()
+        map2(),livesdraw()
     elif mapCounter == 3:
-        map3()
+        map3(),livesdraw()
     elif mapCounter == 4:
-        map4()
+        map4(),livesdraw()
     elif mapCounter == 5:
-        map5()
+        map5(),livesdraw()
+    elif mapCounter == 6:
+        map6(),livesdraw()
+    pygame.display.flip()
     # temporary
 
