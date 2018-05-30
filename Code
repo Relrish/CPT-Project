@@ -1,11 +1,14 @@
+#Importing and initialising Pygame
 import pygame
 pygame.init()
+#Setting the colours of the game
 Black, LBlack, DGray, Gray, LGray, Silver, White = (70,70,70), (105,105,105), (140,140,140), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
 DRed, Green, Gold = (128,0,0), (0, 255, 0),(255,215,0)
 
 #temporary
 Red, Blue = (255, 0, 0), (0, 0, 255)
 
+#Setting all the variables used in the game
 pcolor = 128
 pc, Portal = 1, (pcolor, 0 ,pcolor)
 lcolor = 128
@@ -15,10 +18,10 @@ left_move,right_move = 0,0
 xvalue,yvalue= 30,500
 j, jump, canJump, gravity, jumpCooldown = 0,0,True,0,0
 done=False
-mapCounter = 0
+mapCounter = 1
 lives = 5
 key1, key2 = False,False
-font1, font2 = pygame.font.SysFont('', 50, True, False), pygame.font.SysFont('', 40, False, False)
+font1, font2, overfont = pygame.font.SysFont('',50, True, False), pygame.font.SysFont('', 40, False, False), pygame.font.SysFont('',100, True, False)
 startScreen = True
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
@@ -26,21 +29,22 @@ clock=pygame.time.Clock()
 
 clock.tick(120)
 
+#cooldownJump(): This function allows the user to jump again
 def cooldownJump():
     global canJump,gravity
     gravity = 0
     if jumpCooldown < 0:
         canJump = True
-
+#reset(): Sets the user back to the beginning. Takes one life
 def reset():
     global lives
     nextlevel()
     lives -= 1
-
+#nextlevel(): Sets the user at the beginning.
 def nextlevel():
     global xvalue,yvalue,key1,key2
     xvalue, yvalue, key1, key2 = 30, 500, False, False
-
+#portaldraw(): Makes portals to change colour
 def portaldraw():
     global pcolor, pc, Portal
     if pcolor >= 255:
@@ -54,6 +58,7 @@ def portaldraw():
     else:
         pcolor = pcolor - 0.3
         Portal = (pcolor, 0, pcolor)
+#lavadraw(): Makes the lava to change colour
 def lavadraw():
     global lcolor, lc, Orange
     if lcolor >= 150:
@@ -69,7 +74,7 @@ def lavadraw():
     else:
         lcolor = lcolor - 0.1
         Orange = (255, lcolor, 0)
-
+# livesdraw(): Draws the amount of lives on the screen
 def livesdraw():
     global lives
     if lives == 5:
@@ -92,7 +97,15 @@ def livesdraw():
         pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
     elif lives == 1:
         pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
-
+#failmap(): Function that draws the Game Over screen
+def failmap():
+    lavadraw()
+    screen.fill(Orange)
+    gameover = overfont.render("Game Over", True, DRed)
+    text11 = font2.render("Press space to try again", True, DRed)
+    screen.blit(gameover, [445, 150])
+    screen.blit(text11, [490, 300])
+#map0(): Function that draws the start screen
 def map0():
     screen.fill(LGray)
     lavadraw()
@@ -101,28 +114,32 @@ def map0():
     text2 = font2.render("The objective of the game is to reach the portal on the right side of the map.", True, LBlack)
     text3 = font2.render("This is you. You control him by using the arrow keys.", True, LBlack)
     text4 = font2.render("This is a portal. Get to the one on the right side of the screen to progress.", True, LBlack)
-    text5 = font2.render("This is lava. Touching anything of this colour will send you back to the beginning.", True,
-                         LBlack)
-    text6 = font2.render("This is a key. Some maps will require you to collect keys in order to progress.", True,
-                         LBlack)
-    text7 = font2.render("Jump across platforms to reach the portal on the right.", True, LBlack)
-    text8 = font2.render("Good luck!", True, LBlack)
-    text9 = font2.render("Press spacebar to begin.", True, LBlack)
+    text5 = font2.render("This is lava. Touching anything of this colour will send you back to the beginning.", True, LBlack)
+    text6 = font2.render("This is a key. Some maps will require you to collect keys in order to progress.", True, LBlack)
+    text7 = font2.render("These are your lives. You lose one everytime you touch the lava.", True, LBlack)
+    text8 = font2.render("Jump across platforms to reach the portal on the right.", True, LBlack)
+    text9 = font2.render("Good luck!", True, LBlack)
+    text10 = font2.render("Press spacebar to begin.", True, LBlack)
     screen.blit(text1, [0, 0])
     screen.blit(text2, [0, 50])
     screen.blit(text3, [60, 105])
     screen.blit(text4, [60, 160])
     screen.blit(text5, [70, 225])
     screen.blit(text6, [50, 285])
-    screen.blit(text7, [0, 335])
-    screen.blit(text8, [0, 385])
-    screen.blit(text9, [0, 650])
+    screen.blit(text7,[100, 350])
+    screen.blit(text8, [0, 400])
+    screen.blit(text9, [0, 450])
+    screen.blit(text10, [0, 650])
     pygame.draw.ellipse(screen, Red, [10, 100, 35, 35])
     pygame.draw.line(screen, Portal, [5, 175], [50, 175], 50)
     pygame.draw.line(screen, Orange, [10, 240], [60, 240], 20)
     pygame.draw.rect(screen, Green, [20, 290, 20, 20], 5)
-
-
+    pygame.draw.line(screen, Gold, [10, 340], [10, 380], 8)
+    pygame.draw.line(screen, Gold, [30, 340], [30, 380], 8)
+    pygame.draw.line(screen, Gold, [50, 340], [50, 380], 8)
+    pygame.draw.line(screen, Gold, [70, 340], [70, 380], 8)
+    pygame.draw.line(screen, Gold, [90, 340], [90, 380], 8)
+#map1(): Function that draws the map for level 1
 def map1():
     screen.fill(Black)
     portaldraw()
@@ -142,7 +159,7 @@ def map1():
     pygame.draw.line(screen, LBlack, [1080, 600], [1150, 600], 5)
     pygame.draw.line(screen, LBlack, [1170, 540], [1360, 540], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-
+#map2(): Function that draws the map for level 2
 def map2():
     screen.fill(DGray)
     portaldraw()
@@ -162,7 +179,7 @@ def map2():
     pygame.draw.line(screen, LBlack, [1100, 600], [1170, 600], 5)
     pygame.draw.line(screen, LBlack, [1250, 520], [1360, 520], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-
+#map3(): Function that draws the map for level 3
 def map3():
     screen.fill(Gray)
     portaldraw()
@@ -186,15 +203,15 @@ def map3():
 
     # Lava pool tile
     pygame.draw.line(screen,Orange, [1140,393], [1360, 393],8)
-    pygame.draw.line(screen, DRed, [1140, 400], [1360, 400], 5)
+    pygame.draw.line(screen, LBlack, [1140, 400], [1360, 400], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 
     if key1 == False:
         pygame.draw.rect(screen, Green, [1095, 160, 20, 20], 5)
         pygame.draw.line(screen, Orange, [1135, 390], [1135, 700], 8)
     else:
-        pygame.draw.line(screen, DRed, [1140, 385], [1140, 402], 5)
-
+        pygame.draw.line(screen, LBlack, [1140, 385], [1140, 402], 5)
+#map4(): Function that draws the map for level 4
 def map4():
     screen.fill(LGray)
     portaldraw()
@@ -216,7 +233,7 @@ def map4():
 
     # lava ON blue platform
     pygame.draw.line(screen, Orange, [400, 196], [546, 196], 8)
-    pygame.draw.line(screen, DRed, [400, 202], [546, 202], 5)
+    pygame.draw.line(screen, LBlack, [400, 202], [546, 202], 5)
 
     pygame.draw.line(screen, LBlack, [700, 450], [800, 450], 5)
     pygame.draw.line(screen, LBlack, [860, 400], [900, 400], 5)
@@ -229,13 +246,14 @@ def map4():
 
     # lava ON gren platform
     pygame.draw.line(screen, Orange, [1200, 394], [1300, 394], 8)
-    pygame.draw.line(screen, DRed, [1200, 400], [1300, 400], 5)
+    pygame.draw.line(screen, LBlack, [1200, 400], [1300, 400], 5)
 
     # lava FALLING ON gren platform
     pygame.draw.line(screen, Orange, [1283, 0], [1283, 394], 8)
 
     #green block
-    pygame.draw.line(screen, DRed, [1300, 385], [1300, 402], 5)
+    pygame.draw.line(screen, LBlack, [1300, 385], [1300, 402], 5)
+    pygame.draw.line(screen, LBlack, [500, 500], [600, 500], 5)
 
     if key1 == False:
         pygame.draw.line(screen, Orange, [396, 193], [396, 700], 8)
@@ -243,20 +261,19 @@ def map4():
         pygame.draw.line(screen, Orange, [500, 494], [600, 494], 8)
         pygame.draw.line(screen, Orange, [496, 491], [496, 700], 8)
         pygame.draw.line(screen, Orange, [604, 491], [604, 700], 8)
-        pygame.draw.line(screen, DRed, [500, 500], [600, 500], 5)
         pygame.draw.rect(screen, Green, [70, 110, 20, 20], 5)
     else:
-        pygame.draw.line(screen, DRed, [400, 187], [400, 204], 5)
-        pygame.draw.line(screen, DRed, [546, 187], [546, 204], 5)
+        pygame.draw.line(screen, LBlack, [400, 187], [400, 204], 5)
+        pygame.draw.line(screen, LBlack, [546, 187], [546, 204], 5)
         pygame.draw.line(screen, LBlack, [500, 500], [600, 500], 5)
 
     if key2 == False:
         pygame.draw.line(screen, Orange, [1196, 391], [1196, 700], 8)
         pygame.draw.rect(screen, Green, [550, 90, 20, 20], 5)
     else:
-        pygame.draw.line(screen, DRed, [1200, 385], [1200, 402], 5)
+        pygame.draw.line(screen, LBlack, [1200, 385], [1200, 402], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-
+#map5(): Function that draws the map for level 5
 def map5():
     screen.fill(Silver)
     portaldraw(),lavadraw()
@@ -327,7 +344,7 @@ def map5():
         pygame.draw.line(screen, Orange, [1104, 491], [1104, 700], 8)
         # keydraw
         pygame.draw.rect(screen, Green, [300, 60, 20, 20], 5)
-
+#map6(): Function that draws the map for level 6
 def map6():
     screen.fill(White)
     portaldraw(), lavadraw()
@@ -336,7 +353,7 @@ def map6():
     pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
-
+#map1func(): Function that determines where the user is in map1
 def map1func():
     global yvalue, xvalue, gravity, canJump, mapCounter
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
@@ -379,7 +396,7 @@ def map1func():
     if xvalue == 1325 and yvalue == 505:
         nextlevel()
         mapCounter += 1
-
+#map2func(): Function that determines where the user is in map2
 def map2func():
     global yvalue, xvalue, gravity, canJump, mapCounter
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
@@ -419,7 +436,7 @@ def map2func():
     if xvalue == 1325 and yvalue == 485:
         nextlevel()
         mapCounter += 1
-
+#map3func(): Function that determines where the user is in map3
 def map3func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
@@ -474,7 +491,7 @@ def map3func():
         nextlevel()
         mapCounter += 1
 
-
+#map4func(): Function that determines where the user is in map4
 def map4func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
@@ -552,7 +569,7 @@ def map4func():
     if xvalue == 1325 and yvalue == 565:
         nextlevel()
         mapCounter += 1
-
+#map5func(): Function that determines where the user is in map5
 def map5func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
@@ -654,14 +671,14 @@ def map5func():
     if xvalue == 1325 and yvalue == 65:
         nextlevel()
         mapCounter += 1
-
+#map6func(): Function that determines where the user is in map6
 def map6func():
     global yvalue, xvalue, gravity, canJump, mapCounter, key1, key2
     if xvalue > -34 and xvalue < 100 and yvalue < 566 and yvalue > 562:
         yvalue = 565
         cooldownJump()
 
-#Main Movement Loop
+#Main Game Loop, code that determines what happens when a button is pressed
 while not done:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -672,17 +689,18 @@ while not done:
             elif event.key == pygame.K_RIGHT:
                 right_move = 1
             elif canJump == True:
-                    if event.key == pygame.K_UP:
-                        canJump = False
-                        jump = 6
-                        j = 0.1
-                        jumpCooldown = 2
+                if event.key == pygame.K_UP:
+                    canJump = False
+                    jump = 6
+                    j = 0.1
+                    jumpCooldown = 2
             elif event.key == pygame.K_a:
                 gravity = 0
             elif startScreen == True:
                 if event.key == pygame.K_SPACE:
-                    mapCounter = 1
+                    mapCounter = 2
                     startScreen = False
+                    lives = 5
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_move = 0
@@ -705,30 +723,30 @@ while not done:
                 key2 = False
             elif event.key == pygame.K_y:
                 key2 = True
-#Gravity Code
+    #Code that calculates the gravity
     gravity = gravity + 0.02
     yvalue = yvalue + gravity
-#Floor/Platform Code
+    #Universal reset() code
     if yvalue >= 665:
         reset()
     canJump = False
-    if mapCounter == 0:
+    #Code that determines which mapfunc should be applied
+    if mapCounter == 0 or mapCounter == 1:
         gravity = 0
         nextlevel()
-    elif mapCounter == 1:
-        map1func()
     elif mapCounter == 2:
-        map2func()
+        map1func()
     elif mapCounter == 3:
-        map3func()
+        map2func()
     elif mapCounter == 4:
-        map4func()
+        map3func()
     elif mapCounter == 5:
-        map5func()
+        map4func()
     elif mapCounter == 6:
+        map5func()
+    elif mapCounter == 7:
         map6func()
-
-#Movement Code
+    #Code that calculates the characters x,y,and z location
     xvalue += left_move + right_move
     yvalue = yvalue - jump
     if jump > 0:
@@ -736,7 +754,7 @@ while not done:
     else:
         jump = 0
     jumpCooldown -= 1
-#Restriction Code
+    #Code that restricts the character within the screen
     if xvalue < 0:
         xvalue = 0
     elif xvalue > 1325:
@@ -745,21 +763,27 @@ while not done:
         yvalue = 0
         jump = 0
         j = 0
-#Redrawing Code
+    #Code that determines which map is being drawn
     if mapCounter == 0:
+        failmap()
+        startScreen = True
+    if mapCounter == 1:
         map0()
-    elif mapCounter == 1:
-        map1(),livesdraw()
     elif mapCounter == 2:
-        map2(),livesdraw()
+        map1(),livesdraw()
     elif mapCounter == 3:
-        map3(),livesdraw()
+        map2(),livesdraw()
     elif mapCounter == 4:
-        map4(),livesdraw()
+        map3(),livesdraw()
     elif mapCounter == 5:
-        map5(),livesdraw()
+        map4(),livesdraw()
     elif mapCounter == 6:
+        map5(),livesdraw()
+    elif mapCounter == 7:
         map6(),livesdraw()
     pygame.display.flip()
-    # temporary
+    #Code that checks if the user has lost all their lives
+    if lives == 0:
+        mapCounter = 0
+    #temporary
 
