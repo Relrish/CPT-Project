@@ -1,10 +1,12 @@
 #Importing and initialising Pygame
 import pygame
 pygame.init()
+#Importing random module
+import random
 #Setting the colours of the game
 Black, LBlack, DGray, Gray, LGray, Silver, White = (70,70,70), (105,105,105), (140,140,140), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
 DRed, Green, Gold = (128,0,0), (0, 255, 0),(255,215,0)
-
+mapBack = LGray
 #temporary
 Red, Blue = (255, 0, 0), (0, 0, 255)
 
@@ -23,11 +25,23 @@ lives = 5
 key1, key2 = False,False
 font1, font2, overfont = pygame.font.SysFont('',50, True, False), pygame.font.SysFont('', 40, False, False), pygame.font.SysFont('',100, True, False)
 startScreen = True
+plat = 0
+lifex,lifey1, lifey2, lifey3, lifey4 = 10,10,50,10,50
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
 clock=pygame.time.Clock()
 
 clock.tick(120)
+
+#
+def platf():
+    global LBlack, plat
+    if plat == 700:
+        LBlack = mapBack
+    elif plat == 1100:
+        LBlack = (105,105,105)
+        plat = 0
+    plat += 1
 
 #cooldownJump(): This function allows the user to jump again
 def cooldownJump():
@@ -93,33 +107,33 @@ def livesdraw():
         pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
         pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
     elif lives == 2:
-        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
-        pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
+        pygame.draw.line(screen, Gold, [lifex, lifey1], [lifex, lifey2], 8)
+        pygame.draw.line(screen, Gold, [lifex, lifey3], [lifex, lifey4], 8)
     elif lives == 1:
-        pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
+        pygame.draw.line(screen, Gold, [lifex, lifey1], [lifex, lifey2], 8)
 #failmap(): Function that draws the Game Over screen
 def failmap():
     lavadraw()
-    screen.fill(Orange)
+    screen.fill(mapBack)
     gameover = overfont.render("Game Over", True, DRed)
     text11 = font2.render("Press space to try again", True, DRed)
     screen.blit(gameover, [445, 150])
     screen.blit(text11, [490, 300])
 #map0(): Function that draws the start screen
 def map0():
-    screen.fill(LGray)
+    screen.fill(mapBack)
     lavadraw()
     portaldraw()
-    text1 = font1.render("Welcome!", True, LBlack)
-    text2 = font2.render("The objective of the game is to reach the portal on the right side of the map.", True, LBlack)
-    text3 = font2.render("This is you. You control him by using the arrow keys.", True, LBlack)
-    text4 = font2.render("This is a portal. Get to the one on the right side of the screen to progress.", True, LBlack)
-    text5 = font2.render("This is lava. Touching anything of this colour will send you back to the beginning.", True, LBlack)
-    text6 = font2.render("This is a key. Some maps will require you to collect keys in order to progress.", True, LBlack)
-    text7 = font2.render("These are your lives. You lose one everytime you touch the lava.", True, LBlack)
-    text8 = font2.render("Jump across platforms to reach the portal on the right.", True, LBlack)
-    text9 = font2.render("Good luck!", True, LBlack)
-    text10 = font2.render("Press spacebar to begin.", True, LBlack)
+    text1 = font1.render("Welcome!", True, Black)
+    text2 = font2.render("The objective of the game is to reach the portal on the right side of the map.", True, Black)
+    text3 = font2.render("This is you. You control him by using the arrow keys.", True, Black)
+    text4 = font2.render("This is a portal. Get to the one on the right side of the screen to progress.", True, Black)
+    text5 = font2.render("This is lava. Touching anything of this colour will send you back to the beginning.", True, Black)
+    text6 = font2.render("This is a key. Some maps will require you to collect keys in order to progress.", True, Black)
+    text7 = font2.render("These are your lives. You lose one everytime you touch the lava.", True, Black)
+    text8 = font2.render("Jump across platforms to reach the portal on the right.", True, Black)
+    text9 = font2.render("Good luck!", True, Black)
+    text10 = font2.render("Press spacebar to begin.", True, Black)
     screen.blit(text1, [0, 0])
     screen.blit(text2, [0, 50])
     screen.blit(text3, [60, 105])
@@ -141,7 +155,7 @@ def map0():
     pygame.draw.line(screen, Gold, [90, 340], [90, 380], 8)
 #map1(): Function that draws the map for level 1
 def map1():
-    screen.fill(Black)
+    screen.fill(mapBack)
     portaldraw()
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -161,7 +175,7 @@ def map1():
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 #map2(): Function that draws the map for level 2
 def map2():
-    screen.fill(DGray)
+    screen.fill(mapBack)
     portaldraw()
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -181,7 +195,7 @@ def map2():
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 #map3(): Function that draws the map for level 3
 def map3():
-    screen.fill(Gray)
+    screen.fill(mapBack)
     portaldraw()
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -213,7 +227,7 @@ def map3():
         pygame.draw.line(screen, LBlack, [1140, 385], [1140, 402], 5)
 #map4(): Function that draws the map for level 4
 def map4():
-    screen.fill(LGray)
+    screen.fill(mapBack)
     portaldraw()
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -275,7 +289,7 @@ def map4():
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
 #map5(): Function that draws the map for level 5
 def map5():
-    screen.fill(Silver)
+    screen.fill(mapBack)
     portaldraw(),lavadraw()
     lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -346,7 +360,7 @@ def map5():
         pygame.draw.rect(screen, Green, [300, 60, 20, 20], 5)
 #map6(): Function that draws the map for level 6
 def map6():
-    screen.fill(White)
+    screen.fill(mapBack)
     portaldraw(), lavadraw()
     lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
@@ -726,7 +740,7 @@ while not done:
     #Code that calculates the gravity
     gravity = gravity + 0.02
     yvalue = yvalue + gravity
-    #Universal reset() code
+    #Code that resets the character back to the beginning if they touch the floor
     if yvalue >= 665:
         reset()
     canJump = False
@@ -782,8 +796,36 @@ while not done:
     elif mapCounter == 7:
         map6(),livesdraw()
     pygame.display.flip()
-    #Code that checks if the user has lost all their lives
-    if lives == 0:
+    #Code that determines the current map background
+    if mapCounter == 0:
+        mapBack = Orange
+    elif mapCounter == 1:
+        mapBack = LGray
+    elif mapCounter == 2:
+        mapBack = Black
+    elif mapCounter == 3:
+        mapBack = DGray
+    elif mapCounter == 4:
+        mapBack = Gray
+    elif mapCounter == 5:
+        mapBack = LGray
+    elif mapCounter == 6:
+        mapBack = Silver
+    elif mapCounter == 7:
+        mapBack = White
+    platf()
+    #Code that is related to the amount of lives left
+    if lives == 2:
+        lifex = random.randint(9, 11)
+        lifey1 = random.randint(9, 11)
+        lifey2 = lifey1 + 40
+        lifey3 = random.randint(9, 11)
+        lifey4 = lifey3 + 40
+    elif lives == 1:
+        lifex = random.randint(6, 14)
+        lifey1 = random.randint(6, 14)
+        lifey2 = lifey1 + 40
+    elif lives == 0:
         mapCounter = 0
     #temporary
 
