@@ -3,6 +3,8 @@ import pygame
 pygame.init()
 #Importing random module
 import random
+import time
+from time import sleep
 #Setting the colours of the game
 Black, LBlack, DGray, Gray, LGray, Silver, White = (70,70,70), (105,105,105), (140,140,140), (169,169,169),(192,192,192),(211,211,211), (255,255,255)
 DRed, Green, Gold = (128,0,0), (0, 255, 0),(255,215,0)
@@ -12,7 +14,7 @@ Red, Blue = (255, 0, 0), (0, 0, 255)
 
 #Setting all the variables used in the game
 pcolor = 128
-pc, Portal = 1, (pcolor, 0 ,pcolor)
+pc, Portal = 1, (pcolor, 0, pcolor)
 lcolor = 128
 lc, Orange = 1, (255, pcolor, 0)
 size = (1360, 700)
@@ -26,7 +28,8 @@ key1, key2 = False,False
 font1, font2, overfont = pygame.font.SysFont('',50, True, False), pygame.font.SysFont('', 40, False, False), pygame.font.SysFont('',100, True, False)
 startScreen = True
 plat = 0
-lifex,lifey1, lifey2, lifey3, lifey4 = 10,10,50,10,50
+death,d = False,0
+lifex1, lifex2, lifey1, lifey2, lifey3, lifey4 = 10,30,10,50,10,50
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
 clock=pygame.time.Clock()
@@ -43,12 +46,82 @@ def platf():
         plat = 0
     plat += 1
 
+#playerdraw(): Function that draws the player and function that draws the death animation
+def playerdraw():
+    global d,xvalue,yvalue,death
+    if death == False:
+        pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    else:
+        if d == 0:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+            sleep(0.1)
+            d += 1
+        elif d == 1:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 5, 35, 30])
+            sleep(0.1)
+            d += 1
+        elif d == 2:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 10, 35, 25])
+            sleep(0.1)
+            d += 1
+        elif d == 3:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 15, 35, 20])
+            sleep(0.1)
+            d += 1
+        elif d == 4:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 20, 35, 15])
+            sleep(0.1)
+            d += 1
+        elif d == 5:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 25, 35, 10])
+            sleep(0.1)
+            d += 1
+        elif d == 6:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 30, 35, 5])
+            sleep(0.1)
+            d += 1
+        elif d == 7:
+            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 35, 35, 0])
+            sleep(0.1)
+            d += 1
+        elif d == 8:
+            pygame.draw.ellipse(screen, Red, [30, 500, 5, 5])
+            sleep(0.1)
+            d += 1
+        elif d == 9:
+            pygame.draw.ellipse(screen, Red, [30, 500, 10, 10])
+            sleep(0.1)
+            d += 1
+        elif d == 10:
+            pygame.draw.ellipse(screen, Red, [30, 500, 15, 15])
+            sleep(0.1)
+            d += 1
+        elif d == 11:
+            pygame.draw.ellipse(screen, Red, [30, 500, 20, 20])
+            sleep(0.1)
+            d += 1
+        elif d == 12:
+            pygame.draw.ellipse(screen, Red, [30, 500, 25, 25])
+            sleep(0.1)
+            d += 1
+        elif d == 13:
+            pygame.draw.ellipse(screen, Red, [30, 500, 30, 30])
+            sleep(0.1)
+            d,death = 0, False
+            reset()
+        print(d)
+        pygame.display.flip()
+
 #cooldownJump(): This function allows the user to jump again
 def cooldownJump():
     global canJump,gravity
     gravity = 0
     if jumpCooldown < 0:
         canJump = True
+#dead(): Informs the rest of the code that the player has died
+def dead():
+    global death
+    death = True
 #reset(): Sets the user back to the beginning. Takes one life
 def reset():
     global lives
@@ -107,10 +180,10 @@ def livesdraw():
         pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
         pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
     elif lives == 2:
-        pygame.draw.line(screen, Gold, [lifex, lifey1], [lifex, lifey2], 8)
-        pygame.draw.line(screen, Gold, [lifex, lifey3], [lifex, lifey4], 8)
+        pygame.draw.line(screen, Gold, [lifex1, lifey1], [lifex1, lifey2], 8)
+        pygame.draw.line(screen, Gold, [lifex2, lifey3], [lifex2, lifey4], 8)
     elif lives == 1:
-        pygame.draw.line(screen, Gold, [lifex, lifey1], [lifex, lifey2], 8)
+        pygame.draw.line(screen, Gold, [lifex1, lifey1], [lifex1, lifey2], 8)
 #failmap(): Function that draws the Game Over screen
 def failmap():
     lavadraw()
@@ -160,7 +233,7 @@ def map1():
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 512], [1360, 512], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [200, 600], [300, 600], 5)
     pygame.draw.line(screen, LBlack, [300, 500], [400, 500], 5)
@@ -180,7 +253,7 @@ def map2():
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 492], [1360, 492], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [250, 620], [300, 620], 5)
     pygame.draw.line(screen, LBlack, [420, 560], [490, 560], 5)
@@ -200,7 +273,7 @@ def map3():
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 552], [1360, 552], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [185, 500], [220, 500], 5)
     pygame.draw.line(screen, LBlack, [10, 420], [70, 420], 5)
@@ -232,7 +305,7 @@ def map4():
     lavadraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 572], [1360, 572], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [180, 520], [230, 520], 5)
@@ -294,14 +367,16 @@ def map5():
     lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
     pygame.draw.line(screen, Portal, [1315, 72], [1360, 72], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
     pygame.draw.line(screen, LBlack, [180, 520], [250, 520], 5)
     pygame.draw.line(screen, LBlack, [360, 590], [400, 590], 5)
     pygame.draw.line(screen, LBlack, [490, 610], [540, 610], 5)
     pygame.draw.line(screen, LBlack, [540, 520], [590, 520], 5)
-    pygame.draw.line(screen, LBlack, [590, 420], [640, 420], 5)
+
+    #pygame.draw.line(screen, LBlack, [590, 420], [640, 420], 5)
+
     pygame.draw.line(screen, LBlack, [280, 420], [340, 420], 5)
     pygame.draw.line(screen, LBlack, [180, 330], [250, 330], 5)
     # lavafall top
@@ -348,7 +423,7 @@ def map5():
         # lavablock left
         pygame.draw.line(screen, LBlack, [370, 285], [370, 302], 5)
         # keydraw
-        pygame.draw.rect(screen, Green, [605, 380, 20, 20], 5)
+        pygame.draw.rect(screen, Green, [555, 480, 20, 20], 5)
     else:
         # lavablock right k-FALSE
         pygame.draw.line(screen, LBlack, [400, 135], [400, 152], 5)
@@ -364,7 +439,7 @@ def map6():
     portaldraw(), lavadraw()
     lavadraw(), portaldraw()
     pygame.draw.line(screen, Portal, [25, 517], [70, 517], 50)
-    pygame.draw.ellipse(screen, Red, [xvalue, yvalue, 35, 35])
+    playerdraw()
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
     pygame.draw.line(screen, LBlack, [0, 600], [100, 600], 5)
 #map1func(): Function that determines where the user is in map1
@@ -494,10 +569,10 @@ def map3func():
         cooldownJump()
 
     elif xvalue > 1106 and xvalue < 1360 and yvalue < 366 and yvalue > 362:
-        reset()
+        dead()
     if key1 == False:
         if xvalue > 1101 and xvalue < 1143 and yvalue < 700 and yvalue > 356:
-            reset()
+            dead()
     if xvalue > 1060 and xvalue < 1115 and yvalue < 194 and yvalue > 126:
         key1 = True
 
@@ -557,23 +632,23 @@ def map4func():
         yvalue = 565
         cooldownJump()
     elif xvalue > 416 and xvalue < 458 and yvalue < 196 and yvalue > -34:
-        reset()
+        dead()
     elif xvalue > 366 and xvalue < 546 and yvalue < 162 and yvalue > 158:
-        reset()
+        dead()
     elif xvalue > 1166 and xvalue < 1300 and yvalue < 360 and yvalue > 356:
-        reset()
+        dead()
     elif xvalue > 1249 and xvalue < 1291 and yvalue < 360 and yvalue > 0:
-        reset()
+        dead()
 
     if key1 == False:
         if xvalue > 362 and xvalue < 404 and yvalue < 700 and yvalue > 159:
-            reset()
+            dead()
         elif xvalue > 516 and xvalue < 558 and yvalue < 500 and yvalue > 159:
-            reset()
+            dead()
 
     if key2 == False:
         if xvalue > 1249 and xvalue < 1291 and yvalue < 360 and yvalue > 0:
-            reset()
+            dead()
 
     if xvalue > 36 and xvalue < 90 and yvalue < 144 and yvalue > 76:
         key1 = True
@@ -600,9 +675,6 @@ def map5func():
         cooldownJump()
     elif xvalue > 506 and xvalue < 590 and yvalue < 486 and yvalue > 482:
         yvalue = 485
-        cooldownJump()
-    elif xvalue > 556 and xvalue < 640 and yvalue < 386 and yvalue > 382:
-        yvalue = 385
         cooldownJump()
     elif xvalue > 246 and xvalue < 340 and yvalue < 386 and yvalue > 382:
         yvalue = 385
@@ -653,31 +725,31 @@ def map5func():
         yvalue = 65
         cooldownJump()
     elif xvalue > 166 and xvalue < 208 and yvalue < 150 and yvalue > -34:
-        reset()
+        dead()
     elif xvalue > 116 and xvalue < 400 and yvalue < 150 and yvalue > 106:
-        reset()
+        dead()
     elif xvalue > 786 and xvalue < 828 and yvalue < 500 and yvalue > -34:
-        reset()
+        dead()
     elif xvalue > 766 and xvalue < 1100 and yvalue < 500 and yvalue > 456:
-        reset()
+        dead()
 
     if key1 == False:
         if xvalue > 370 and xvalue < 412 and yvalue < 294 and yvalue > 107:
-            reset()
+            dead()
         elif xvalue > 339 and xvalue < 680 and yvalue < 259 and yvalue > 255:
-            reset()
+            dead()
         elif xvalue > 650 and xvalue < 692 and yvalue < 700 and yvalue > 256:
-            reset()
+            dead()
     else:
         if xvalue > 112 and xvalue < 154 and yvalue < 700 and yvalue > 107:
-            reset()
+            dead()
         elif xvalue > 1070 and xvalue < 1112 and yvalue < 700 and yvalue > 457:
-            reset()
+            dead()
         elif xvalue > 336 and xvalue < 680 and yvalue < 266 and yvalue > 262:
             yvalue = 265
             cooldownJump()
 
-    if xvalue > 571 and xvalue < 625 and yvalue < 414 and yvalue > 346:
+    if xvalue > 521 and xvalue < 575 and yvalue < 514 and yvalue > 446:
         key1 = True
     elif xvalue > 266 and xvalue < 320 and yvalue < 94 and yvalue > 26:
         key1 = False
@@ -742,7 +814,7 @@ while not done:
     yvalue = yvalue + gravity
     #Code that resets the character back to the beginning if they touch the floor
     if yvalue >= 665:
-        reset()
+        dead()
     canJump = False
     #Code that determines which mapfunc should be applied
     if mapCounter == 0 or mapCounter == 1:
@@ -813,16 +885,17 @@ while not done:
         mapBack = Silver
     elif mapCounter == 7:
         mapBack = White
-    platf()
+    #platf()
     #Code that is related to the amount of lives left
     if lives == 2:
-        lifex = random.randint(9, 11)
+        lifex1 = random.randint(9, 11)
+        lifex2 = random.randint(29, 31)
         lifey1 = random.randint(9, 11)
         lifey2 = lifey1 + 40
         lifey3 = random.randint(9, 11)
         lifey4 = lifey3 + 40
     elif lives == 1:
-        lifex = random.randint(6, 14)
+        lifex1 = random.randint(6, 14)
         lifey1 = random.randint(6, 14)
         lifey2 = lifey1 + 40
     elif lives == 0:
