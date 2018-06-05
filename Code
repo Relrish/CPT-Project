@@ -3,6 +3,7 @@ import pygame
 pygame.init()
 #Importing random module
 import random
+#Importing random module with the sleep function= yvalue
 import time
 from time import sleep
 #Setting the colours of the game
@@ -28,7 +29,7 @@ key1, key2 = False,False
 font1, font2, overfont = pygame.font.SysFont('',50, True, False), pygame.font.SysFont('', 40, False, False), pygame.font.SysFont('',100, True, False)
 startScreen = True
 plat = 0
-death,d = False,0
+death,d,s = False,0,0
 lifex1, lifex2, lifey1, lifey2, lifey3, lifey4 = 10,30,10,50,10,50
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Jumper")
@@ -81,37 +82,42 @@ def playerdraw():
             sleep(0.1)
             d += 1
         elif d == 7:
-            pygame.draw.ellipse(screen, Red, [xvalue, yvalue + 35, 35, 0])
+            playerspawn()
+        pygame.display.flip()
+#playerspawn(): Function that animates the player being spawned after dying
+def playerspawn():
+    global s,death,d,lives
+    if lives != 1:
+        if s == 0:
+            pygame.draw.ellipse(screen, Red, [43, 513, 5, 5])
             sleep(0.1)
-            d += 1
-        elif d == 8:
-            pygame.draw.ellipse(screen, Red, [30, 500, 5, 5])
+            s += 1
+        elif s == 1:
+            pygame.draw.ellipse(screen, Red, [40, 510, 10, 10])
             sleep(0.1)
-            d += 1
-        elif d == 9:
-            pygame.draw.ellipse(screen, Red, [30, 500, 10, 10])
+            s += 1
+        elif s == 2:
+            pygame.draw.ellipse(screen, Red, [38, 508, 15, 15])
             sleep(0.1)
-            d += 1
-        elif d == 10:
-            pygame.draw.ellipse(screen, Red, [30, 500, 15, 15])
+            s += 1
+        elif s == 3:
+            pygame.draw.ellipse(screen, Red, [35, 505, 20, 20])
             sleep(0.1)
-            d += 1
-        elif d == 11:
-            pygame.draw.ellipse(screen, Red, [30, 500, 20, 20])
+            s += 1
+        elif s == 4:
+            pygame.draw.ellipse(screen, Red, [33, 503, 25, 25])
             sleep(0.1)
-            d += 1
-        elif d == 12:
-            pygame.draw.ellipse(screen, Red, [30, 500, 25, 25])
-            sleep(0.1)
-            d += 1
-        elif d == 13:
+            s += 1
+        elif s == 5:
             pygame.draw.ellipse(screen, Red, [30, 500, 30, 30])
             sleep(0.1)
-            d,death = 0, False
+            s,d= 0,0
+            death = False
             reset()
-        print(d)
-        pygame.display.flip()
-
+    else:
+        print(xvalue)
+        reset()
+    pygame.display.flip()
 #cooldownJump(): This function allows the user to jump again
 def cooldownJump():
     global canJump,gravity
@@ -124,13 +130,14 @@ def dead():
     death = True
 #reset(): Sets the user back to the beginning. Takes one life
 def reset():
-    global lives
+    global lives,s
     nextlevel()
     lives -= 1
 #nextlevel(): Sets the user at the beginning.
 def nextlevel():
-    global xvalue,yvalue,key1,key2
+    global xvalue,yvalue,key1,key2,gravity
     xvalue, yvalue, key1, key2 = 30, 500, False, False
+    gravity = 0
 #portaldraw(): Makes portals to change colour
 def portaldraw():
     global pcolor, pc, Portal
@@ -787,6 +794,7 @@ while not done:
                     mapCounter = 2
                     startScreen = False
                     lives = 5
+                    s,d,death = 0,0,False
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_move = 0
@@ -810,8 +818,8 @@ while not done:
             elif event.key == pygame.K_y:
                 key2 = True
     #Code that calculates the gravity
-    gravity = gravity + 0.02
-    yvalue = yvalue + gravity
+    gravity += 0.02
+    yvalue += gravity
     #Code that resets the character back to the beginning if they touch the floor
     if yvalue >= 665:
         dead()
