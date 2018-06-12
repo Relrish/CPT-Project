@@ -178,6 +178,7 @@ def lavadraw():
 # livesdraw(): Draws the amount of lives on the screen
 def livesdraw():
     global lives
+    #depending on the number of current lives, the lines representing the lives will be drawn
     if lives == 5:
         pygame.draw.line(screen, Gold, [10, 10], [10, 50], 8)
         pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
@@ -194,10 +195,20 @@ def livesdraw():
         pygame.draw.line(screen, Gold, [30, 10], [30, 50], 8)
         pygame.draw.line(screen, Gold, [50, 10], [50, 50], 8)
     elif lives == 2:
+    #these are different because of the need of randomizing the x/y values to create the shaking of lives
         pygame.draw.line(screen, Gold, [lifex1, lifey1], [lifex1, lifey2], 8)
         pygame.draw.line(screen, Gold, [lifex2, lifey3], [lifex2, lifey4], 8)
     elif lives == 1:
         pygame.draw.line(screen, Gold, [lifex1, lifey1], [lifex1, lifey2], 8)
+#countedraw(): function that draws the current user's score on the screen
+def counterdraw():
+    countertext = font2.render(str(timescore), True, Gold)
+    if len(str(timescore)) == 2:
+        screen.blit(countertext, [1320, 0])
+    elif len(str(timescore)) == 3:
+        screen.blit(countertext, [1300, 0])
+    else:
+        screen.blit(countertext, [1340, 0])
 #failmap(): Function that draws the Game Over screen
 def failmap():
     lavadraw()
@@ -308,7 +319,7 @@ def map3():
     pygame.draw.line(screen,Orange, [1140,393], [1360, 393],8)
     pygame.draw.line(screen, LBlack, [1140, 400], [1360, 400], 5)
     pygame.draw.line(screen, Orange, [0, 690], [1360, 690], 20)
-    #The map changes depending if the user has collected keys
+    #The map changes depending on if the user has collected keys
     if key1 == False:
         pygame.draw.rect(screen, Green, [1095, 160, 20, 20], 5)
         pygame.draw.line(screen, Orange, [1135, 390], [1135, 700], 8)
@@ -346,6 +357,7 @@ def map4():
     pygame.draw.line(screen, Orange, [1283, 0], [1283, 394], 8)
     pygame.draw.line(screen, LBlack, [1300, 385], [1300, 402], 5)
     pygame.draw.line(screen, LBlack, [500, 500], [600, 500], 5)
+    #the map changes depending on if the user has collected the necessary keys
     if key1 == False:
         pygame.draw.line(screen, Orange, [396, 193], [396, 700], 8)
         pygame.draw.line(screen, Orange, [550, 193], [550, 495], 8)
@@ -401,6 +413,7 @@ def map5():
     pygame.draw.line(screen, LBlack, [900, 310], [980, 310], 5)
     pygame.draw.line(screen, LBlack, [1050, 210], [1150, 210], 5)
     pygame.draw.line(screen, LBlack, [1200, 100], [1360, 100], 5)
+    #the map changes depending on if the user has collected the necessary keys
     if key1 == False:
         pygame.draw.line(screen, LBlack, [150, 135], [150, 152], 5)
         pygame.draw.line(screen, Orange, [404, 141], [404, 294], 8)
@@ -432,7 +445,7 @@ def map6():
     #winmap(): Function that draws the Winning screen
 def winmap():
     global newhighscore
-    screen.fill(DGray)
+    screen.fill(mapBack)
     portaldraw()
     text12 = overfont.render("Congratulations!", True, Gold)
     text13 = font2.render("You have beaten Jumper!", True, Gold)
@@ -445,6 +458,8 @@ def winmap():
     screen.blit(text15, [455, 650])
     f = open('JumperHighscore.txt', 'r')
     highscore = f.readline()
+    #if the user's score is lower then the current highscore, the program
+    #display text16
     if int(highscore) > timescore:
         newhighscore = True
     if newhighscore == True:
@@ -488,6 +503,7 @@ def map1func():
     elif xvalue > 1136 and xvalue < 1360 and yvalue < 506 and yvalue > 502:
         yvalue = 505
         cooldownJump()
+    #if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 505:
         nextlevel()
         mapCounter += 1
@@ -527,6 +543,7 @@ def map2func():
     elif xvalue > 1216 and xvalue < 1360 and yvalue < 486 and yvalue > 482:
         yvalue = 485
         cooldownJump()
+    # if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 485:
         nextlevel()
         mapCounter += 1
@@ -574,11 +591,13 @@ def map3func():
         cooldownJump()
     elif xvalue > 1106 and xvalue < 1360 and yvalue < 366 and yvalue > 362:
         dead()
+    #the map changes depending on if the user has collected the necessary keys
     if key1 == False:
         if xvalue > 1101 and xvalue < 1143 and yvalue < 700 and yvalue > 356:
             dead()
     if xvalue > 1060 and xvalue < 1115 and yvalue < 194 and yvalue > 126:
         key1 = True
+    # if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 545:
         nextlevel()
         mapCounter += 1
@@ -641,6 +660,7 @@ def map4func():
         dead()
     elif xvalue > 1249 and xvalue < 1291 and yvalue < 360 and yvalue > 0:
         dead()
+    #The map changes depending on if the user has collected the necessary keys
     if key1 == False:
         if xvalue > 362 and xvalue < 404 and yvalue < 700 and yvalue > 159:
             dead()
@@ -653,6 +673,7 @@ def map4func():
         key1 = True
     elif xvalue > 516 and xvalue < 570 and yvalue < 124 and yvalue > 56:
         key2 = True
+    # if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 565:
         nextlevel()
         mapCounter += 1
@@ -730,6 +751,7 @@ def map5func():
         dead()
     elif xvalue > 766 and xvalue < 1100 and yvalue < 500 and yvalue > 456:
         dead()
+    #the map changes depending on if the user has collected the necessary keys
     if key1 == False:
         if xvalue > 370 and xvalue < 412 and yvalue < 294 and yvalue > 107:
             dead()
@@ -749,6 +771,7 @@ def map5func():
         key1 = True
     elif xvalue > 266 and xvalue < 320 and yvalue < 94 and yvalue > 26:
         key1 = False
+    #if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 65:
         nextlevel()
         mapCounter += 1
@@ -776,6 +799,7 @@ def map6func():
     elif xvalue > 1166 and xvalue < 1360 and yvalue < 266 and yvalue > 262:
         yvalue = 265
         cooldownJump()
+    #if the user reaches the end of the map, the next map is loaded
     if xvalue == 1325 and yvalue == 265:
         mapCounter += 1
 #winmapfunc(): Function that sets the new highscore if it was achieved
@@ -787,6 +811,8 @@ def winmapfunc():
     timer = False
     r = open('JumperHighscore.txt', 'r')
     highscore = r.readline()
+    #if the user's score is lower then the current highscore, the user's score
+    #replace the current highscore
     if int(highscore) > timescore:
         w = open('JumperHighscore.txt', 'w')
         w.write(str(timescore))
@@ -819,18 +845,18 @@ while not done:
                     lives = 5
                     s,d,death = 0,0,False
                     timer,t,timescore = True,0,0
-            elif event.key == pygame.K_r:
-                f = open('JumperHighscore.txt', 'w')
-                f.write('999999')
         elif event.type == pygame.KEYUP:
+            #if the user lets go of the left arrow, the character stops moving to the left
             if event.key == pygame.K_LEFT:
                 left_move = 0
+            #if the user lets go of the right arrow, the character stops moving to the right
             elif event.key == pygame.K_RIGHT:
                 right_move = 0
+            #if the user lets go of the up arrow, the character stops going up
             elif event.key == pygame.K_UP:
                 jump = 0
                 j = 0
-            #Cheats
+            #Cheats to navigate levels easier
             elif event.key == pygame.K_q:
                 mapCounter -= 1
             elif event.key == pygame.K_w:
@@ -884,17 +910,17 @@ while not done:
     if mapCounter == 1:
         map0()
     elif mapCounter == 2:
-        map1(),livesdraw()
+        map1(),livesdraw(),counterdraw()
     elif mapCounter == 3:
-        map2(),livesdraw()
+        map2(),livesdraw(),counterdraw()
     elif mapCounter == 4:
-        map3(),livesdraw()
+        map3(),livesdraw(),counterdraw()
     elif mapCounter == 5:
-        map4(),livesdraw()
+        map4(),livesdraw(),counterdraw()
     elif mapCounter == 6:
-        map5(),livesdraw()
+        map5(),livesdraw(),counterdraw()
     elif mapCounter == 7:
-        map6(),livesdraw()
+        map6(),livesdraw(),counterdraw()
     elif mapCounter == 8:
         winmap()
         startScreen = True
@@ -916,6 +942,8 @@ while not done:
         mapBack = Silver
     elif mapCounter == 7:
         mapBack = White
+    elif mapCounter == 8:
+        mapBack = DGray
     #Code that is related to the amount of lives left
     if lives == 2:
         lifex1 = random.randint(9, 11)
